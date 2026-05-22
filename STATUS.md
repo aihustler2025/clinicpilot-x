@@ -35,9 +35,13 @@ Project setup and intake. The owner has an existing Lovable-built project with a
 
 On 2026-05-22, Codex inventoried `D:\PROJECTS\CLINICPILOT X (Old)`. The archive contains old docs, n8n workflow exports, PDFs, spreadsheets, and images. Key findings were saved in `08-research/old-docs-intake/reference-material-findings.md`, and old n8n exports were copied to `04-automations/old-n8n-workflows`.
 
+## Lovable Audit Round 1 Findings
+
+Lovable reports the current project is a static marketing site only. There is no dashboard, no backend, no Lovable Cloud, no Supabase, no auth, no database, no n8n, and no active integrations. The contact form only shows a toast and discards lead data. See `03-lovable/lovable-audit-round-1-findings.md`.
+
 ## Next Best Step
 
-Run the Lovable project audit, verify backend/domain settings, and get Lovable's exact DNS records before changing GoDaddy DNS for `clinicpilotx.com`.
+Send `prompts/lovable-custom-response-after-audit.md` to Lovable instead of clicking broad approval. The next step is to make Lovable add/maintain project memory files and propose the exact Step 1 backend/auth plan before implementation.
 
 ## Immediate Prompt To Use
 

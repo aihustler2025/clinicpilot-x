@@ -19,10 +19,11 @@
 - [x] Inventory old ClinicPilot X reference files.
 - [x] Copy old n8n workflow exports into active project folder.
 - [x] Create old-docs intake summary.
-- [ ] Collect Lovable database/backend details.
+- [x] Collect Lovable database/backend details.
 - [ ] Determine whether Lovable can export to GitHub.
-- [ ] Audit current Lovable marketing site and dashboard.
-- [ ] Identify real features vs placeholder/demo UI.
+- [ ] Confirm whether Lovable can connect to existing GitHub repo or must create a new repo.
+- [x] Audit current Lovable marketing site and dashboard.
+- [x] Identify real features vs placeholder/demo UI.
 - [x] Confirm official domain name in GoDaddy.
 - [ ] Review GoDaddy DNS before making any changes.
 - [ ] Add `clinicpilotx.com` in Lovable project domain settings and capture required DNS records.
@@ -50,7 +51,11 @@
 - [x] Create Lovable backend/cloud audit prompt.
 - [x] Create Lovable project manager master audit prompt.
 - [x] Create Lovable audit round 1 current-state prompt.
-- [ ] Paste Lovable audit round 1 prompt into Lovable and collect response.
+- [x] Paste Lovable audit round 1 prompt into Lovable and collect response.
+- [x] Save Lovable audit round 1 response from attachment.
+- [x] Extract Lovable audit findings.
+- [x] Create Lovable project memory protocol.
+- [x] Create custom response to send instead of broad approval.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
 - [ ] Verify any Lovable-claimed completion on the actual app before marking done.

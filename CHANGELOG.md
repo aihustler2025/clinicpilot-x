@@ -20,6 +20,10 @@
 - Added Lovable project inventory.
 - Added domain plan for `clinicpilotx.com`.
 - Added Lovable audit round 1 current-state prompt and audit plan.
+- Extracted Lovable chat history attachment.
+- Added Lovable audit round 1 findings.
+- Added Lovable project memory protocol.
+- Added custom response to send instead of broad approval.
 
 ## 2026-05-21
 
