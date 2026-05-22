@@ -39,6 +39,10 @@ On 2026-05-22, Codex inventoried `D:\PROJECTS\CLINICPILOT X (Old)`. The archive 
 
 Run the Lovable project audit, verify backend/domain settings, and get Lovable's exact DNS records before changing GoDaddy DNS for `clinicpilotx.com`.
 
+## Immediate Prompt To Use
+
+Paste `prompts/lovable-audit-round-1-current-state.md` into the ClinicPilot X Lovable chat. Save Lovable's response into `03-lovable` before creating implementation prompts.
+
 ## Workspace Organization Update
 
 On 2026-05-21, local storage was inspected. FanFlow's active repo is currently on the C drive at `C:\Users\Rosstafari\Documents\New project\FanFlow\cloud`, not on the D drive. D drive contains `BuzzForge`, `CLINICPILOT X (Old)`, `DASHCARDS`, `PRIME10X`, and `prime10x-homebase`. See `00-admin/workspace-inventory.md`.

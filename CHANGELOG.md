@@ -19,6 +19,7 @@
 - Generated old document intake summary and file inventory.
 - Added Lovable project inventory.
 - Added domain plan for `clinicpilotx.com`.
+- Added Lovable audit round 1 current-state prompt and audit plan.
 
 ## 2026-05-21
 

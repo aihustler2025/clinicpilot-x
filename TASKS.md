@@ -49,6 +49,8 @@
 - [x] Create first Lovable audit prompt.
 - [x] Create Lovable backend/cloud audit prompt.
 - [x] Create Lovable project manager master audit prompt.
+- [x] Create Lovable audit round 1 current-state prompt.
+- [ ] Paste Lovable audit round 1 prompt into Lovable and collect response.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
 - [ ] Verify any Lovable-claimed completion on the actual app before marking done.
