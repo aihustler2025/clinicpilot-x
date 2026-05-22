@@ -35,6 +35,8 @@
 ## Product MVP
 
 - [ ] Confirm one-week MVP demo scope.
+- [ ] Harden Supabase RLS before demo.
+- [ ] Add auth UI and protected dashboard routes.
 - [ ] Define client/business setup flow.
 - [ ] Define inbound email capture flow.
 - [ ] Define lead classification labels.
@@ -59,9 +61,12 @@
 - [x] Identify audited project as Marketing Lovable only.
 - [x] Create Marketing Lovable hold/audit message.
 - [x] Create Dashboard Lovable audit message.
-- [ ] Collect Dashboard Lovable project URL/ID.
-- [ ] Send Dashboard Lovable audit message and collect response.
-- [ ] Decide merge strategy: one Lovable app vs marketing/app split.
+- [x] Collect Dashboard Lovable project URL/ID.
+- [x] Send Dashboard Lovable audit message and collect response.
+- [x] Decide merge strategy: make Dashboard Lovable the main app and port marketing pages into it.
+- [x] Create Dashboard Lovable Step 1 security/auth planning prompt.
+- [ ] Send Dashboard Lovable Step 1 security/auth planning prompt and collect response.
+- [ ] Send Marketing Lovable pause message after combined audit.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
 - [ ] Verify any Lovable-claimed completion on the actual app before marking done.

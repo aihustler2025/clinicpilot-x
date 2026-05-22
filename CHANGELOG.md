@@ -27,6 +27,9 @@
 - Reclassified audited Lovable project as `Marketing Lovable`.
 - Added two-project strategy doc.
 - Added Marketing Lovable hold message and Dashboard Lovable audit message.
+- Extracted combined Marketing/Dashboard Lovable responses.
+- Recommended Dashboard Lovable as the main app.
+- Added merge recommendation and Step 1 security/auth prompt.
 
 ## 2026-05-21
 

@@ -42,7 +42,11 @@ Lovable reports the audited project is a static marketing site only. There is no
 
 ## Next Best Step
 
-Audit the separate `Dashboard Lovable` project before approving any backend/dashboard implementation in `Marketing Lovable`. Send `prompts/lovable-marketing-hold-message.md` to Marketing Lovable and `prompts/lovable-dashboard-audit-message.md` to Dashboard Lovable.
+Choose Dashboard Lovable as the likely main app, but require a security/auth implementation plan before approving changes. Send `prompts/lovable-dashboard-step-1-security-auth-plan.md` to Dashboard Lovable. Keep Marketing Lovable on hold with `prompts/lovable-marketing-pause-after-combined-audit.md`.
+
+## Combined Lovable Audit Summary
+
+Marketing Lovable is static marketing only. Dashboard Lovable has dashboard routes and an external Supabase project (`zglkebeaimtvpynmlrra`) with tables, but critical security/auth work is missing. The recommended path is to make Dashboard Lovable the main app and port Marketing Lovable pages into it after security/auth are fixed.
 
 ## Immediate Prompt To Use
 
