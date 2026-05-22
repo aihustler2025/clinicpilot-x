@@ -11,6 +11,8 @@ Project setup and intake. The owner has an existing Lovable-built project with a
 - ClinicPilot X is a Buzzooka-owned product.
 - Active local folder: `D:\BUZZOOKA WORKSPACE\Products\ClinicPilot X`
 - GitHub repo: `https://github.com/aihustler2025/clinicpilot-x`
+- Lovable project: `https://lovable.dev/projects/37666967-bc8e-4032-9043-f45713e2bc22`
+- Target domain: `clinicpilotx.com`
 - The owner wants a usable MVP in about one week because clients are waiting.
 - Target customers include plastic surgery clinics, dentists, dental surgery offices, med spas, beauty spas, hair salons, beauty parlors, and similar service businesses.
 - Core MVP: classify inbound client emails, identify credible leads, notify the business owner, save lead records, and optionally draft replies.
@@ -29,9 +31,13 @@ Project setup and intake. The owner has an existing Lovable-built project with a
 - Whether Hostinger n8n still exists and can be exported.
 - Whether Make.com or n8n is the first automation path.
 
+## Intake From Old Project Files
+
+On 2026-05-22, Codex inventoried `D:\PROJECTS\CLINICPILOT X (Old)`. The archive contains old docs, n8n workflow exports, PDFs, spreadsheets, and images. Key findings were saved in `08-research/old-docs-intake/reference-material-findings.md`, and old n8n exports were copied to `04-automations/old-n8n-workflows`.
+
 ## Next Best Step
 
-Collect access/screenshots/exports from Lovable and create a product/technical audit before making domain, hosting, backend, or automation changes.
+Run the Lovable project audit, verify backend/domain settings, and get Lovable's exact DNS records before changing GoDaddy DNS for `clinicpilotx.com`.
 
 ## Workspace Organization Update
 

@@ -15,13 +15,18 @@
 - [ ] Create or verify D-drive mirror for FanFlow.
 - [ ] Identify GitHub repo for Dashcards.
 - [x] Identify GitHub repo for ClinicPilot X.
-- [ ] Collect Lovable project URL/ID and current screenshots.
+- [x] Collect Lovable project URL/ID and current screenshots.
+- [x] Inventory old ClinicPilot X reference files.
+- [x] Copy old n8n workflow exports into active project folder.
+- [x] Create old-docs intake summary.
 - [ ] Collect Lovable database/backend details.
 - [ ] Determine whether Lovable can export to GitHub.
 - [ ] Audit current Lovable marketing site and dashboard.
 - [ ] Identify real features vs placeholder/demo UI.
-- [ ] Confirm official domain name in GoDaddy.
+- [x] Confirm official domain name in GoDaddy.
 - [ ] Review GoDaddy DNS before making any changes.
+- [ ] Add `clinicpilotx.com` in Lovable project domain settings and capture required DNS records.
+- [ ] Apply Lovable-provided DNS records in GoDaddy after record review.
 - [ ] Review SiteGround account contents before cleanup or reuse.
 - [ ] Confirm whether old Hostinger n8n still exists.
 - [ ] Decide first automation engine: Make.com, n8n, or in-house Cloudflare/Convex.
@@ -51,6 +56,7 @@
 ## Automation
 
 - [ ] Design email intake test workflow.
+- [x] Inventory old n8n workflow exports.
 - [x] Create hosting cleanup and n8n SiteGround prompt.
 - [ ] Create sample test emails for credible lead, spam, unsure, existing client, and vendor.
 - [ ] Create classifier prompt/rules.

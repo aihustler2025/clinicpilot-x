@@ -1,0 +1,1199 @@
+{
+  "name": "outbound reachout",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -176,
+        112
+      ],
+      "id": "b9b6cf48-9f07-43c2-bf52-009f295aab13",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1998323967,
+          "mode": "list",
+          "cachedResultName": "appointment lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=1998323967"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "STATUS",
+              "lookupValue": "TO_CONTACT"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        48,
+        112
+      ],
+      "id": "8c8c37eb-8cc6-46ff-abc4-9e76cdeaa88a",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json[\"OUTBOUND TYPE\"] }}",
+                    "rightValue": "CALL",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "b9790c42-2c06-4743-a030-ed3e5be7181c"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e4bbe4ee-5b3a-4258-b0f1-7fb09cbeb88b",
+                    "leftValue": "={{ $json[\"OUTBOUND TYPE\"] }}",
+                    "rightValue": "SMS/Email",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        272,
+        112
+      ],
+      "id": "1e9f9bd1-748c-4a00-93a7-ca54263df2f6",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.EMAIL }}",
+        "subject": "Your Appointment Request Has Been Received",
+        "emailType": "text",
+        "message": "=Hi {{ $json.NAME }}, \n\nThank you for scheduling an appointment with us!   \n\nWe’ve received your request and will confirm the details soon.  🗓️ Appointment Date: {{ $json['DATE AND TIME REQUESTED'] }} \n\nIf you have any questions, feel free to reply to this email.  Best regards,   \n\nDr.hong clinic Team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        16
+      ],
+      "id": "86649aad-5493-48e3-9e45-825155cbb463",
+      "name": "Send a message1",
+      "webhookId": "3a1837a3-98b3-4303-8ee1-c644d8175e2d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "hnroPF27KTwynKcG",
+          "name": "team Dr.gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "from": "+13656955199",
+        "to": "={{ $json[\"PHONE NUMBER\"] }}",
+        "message": "=Hi {{ $json[\"Name\"] || \"\" }},\nyour appointment request has been received! \n\n{{ $json['DATE AND TIME REQUESTED'] }} We’ll confirm it shortly.\n\nDR.hong clinic team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        944,
+        16
+      ],
+      "id": "a9a9aabb-b383-4fc6-87ff-4c83db7210ca",
+      "name": "Send an SMS/MMS/WhatsApp message1",
+      "credentials": {
+        "twilioApi": {
+          "id": "KGPmKqA09xug9a1U",
+          "name": "Twilio account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.EMAIL }}",
+        "subject": "Your Appointment Request Has Been Received",
+        "emailType": "text",
+        "message": "=Hi {{ $json.NAME }}, \n\nThank you for scheduling an appointment with us!   \n\nWe’ve received your request and will confirm the details soon.  🗓️ Appointment Date: {{ $json['DATE AND TIME REQUESTED'] }} \n\nIf you have any questions, feel free to reply to this email.  Best regards,   \n\nDr.hong clinic Team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        944,
+        -368
+      ],
+      "id": "bdde5ce4-04d0-4c57-86bb-e2a32b0c93bd",
+      "name": "Send a message",
+      "webhookId": "3a1837a3-98b3-4303-8ee1-c644d8175e2d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "hnroPF27KTwynKcG",
+          "name": "team Dr.gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "from": "+13656955199",
+        "to": "={{ $json[\"PHONE NUMBER\"] }}",
+        "message": "=Hi {{ $json[\"Name\"] || \"\" }},\nyour appointment request has been received! \n\n{{ $json['DATE AND TIME REQUESTED'] }} We’ll confirm it shortly.\n\nDR.hong clinic team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        944,
+        -176
+      ],
+      "id": "ef9813b2-cff6-43f9-a802-723082138de8",
+      "name": "Send an SMS/MMS/WhatsApp message2",
+      "credentials": {
+        "twilioApi": {
+          "id": "KGPmKqA09xug9a1U",
+          "name": "Twilio account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1168,
+        -192
+      ],
+      "id": "dcba372b-3dd4-45c0-a9f8-ada2901d48a7",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1998323967,
+          "mode": "list",
+          "cachedResultName": "appointment lead",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=1998323967"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": 0,
+            "NATIFICATIONS": "TRUE",
+            "STATUS": "CALLED"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "NAME",
+              "displayName": "NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "EMAIL",
+              "displayName": "EMAIL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PHONE NUMBER",
+              "displayName": "PHONE NUMBER",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "DATE CONTACTED",
+              "displayName": "DATE CONTACTED",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "DATE AND TIME REQUESTED",
+              "displayName": "DATE AND TIME REQUESTED",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "INTRESTED SERIVCE AND DETAIL ",
+              "displayName": "INTRESTED SERIVCE AND DETAIL ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FINAL DATE",
+              "displayName": "FINAL DATE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "FINAL TIME IN 24 HOUR FORMAT",
+              "displayName": "FINAL TIME IN 24 HOUR FORMAT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "OUTBOUND TYPE",
+              "displayName": "OUTBOUND TYPE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NATIFICATIONS",
+              "displayName": "NATIFICATIONS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "REMINDER_1",
+              "displayName": "REMINDER_1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "REMINDER_2",
+              "displayName": "REMINDER_2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "REMINDER_3",
+              "displayName": "REMINDER_3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CALL SUMMARY",
+              "displayName": "CALL SUMMARY",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CALL TRANSCRIPT",
+              "displayName": "CALL TRANSCRIPT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1392,
+        -176
+      ],
+      "id": "60fa0265-1a93-4be8-9736-894e5b337895",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json[\"PHONE NUMBER\"] }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    },
+                    "id": "d2750421-0590-4b53-97ae-1afb5a5557c8"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9bb42230-cb6f-4f14-b997-9c083e2e6c67",
+                    "leftValue": "={{ $json.EMAIL }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a390c215-6d43-4fa1-b73d-2b2b315301ac",
+                    "leftValue": "={{ !!$json[\"PHONE NUMBER\"] && !!$json.EMAIL }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e14eaa89-626a-4c42-9e97-d368eb7a79f3",
+                    "leftValue": "={{ !!$json[\"PHONE NUMBER\"] || !!$json.EMAIL }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "false",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        496,
+        -272
+      ],
+      "id": "a2d430bf-2707-4f50-b286-1963c33755e1",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "in-progress",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "3364319f-e622-4d3c-bd10-ee3bbdda542e"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "In Progress"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "eb1a119d-4452-4334-b1dc-374ef5086ce8",
+                    "leftValue": "={{ $json.status }}",
+                    "rightValue": "ended",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Call Ended"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1392,
+        240
+      ],
+      "id": "aadbb19d-9e87-4603-b047-c908018c3665",
+      "name": "In Progress/Ended?1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Fetch Call Details1').item.json.endedReason }}",
+                    "rightValue": "silence-timed-out",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "b91dc4a2-ac05-4ec9-96f2-31910e0285ea"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Call Missed"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cbfc0725-b7e2-464e-98fd-0e43101114a9",
+                    "leftValue": "={{ $('Fetch Call Details1').item.json.endedReason }}",
+                    "rightValue": "customer-ended-call",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Call Ended Normally"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1616,
+        240
+      ],
+      "id": "d8e634f8-cce7-455e-b2e9-165cc63e5a9a",
+      "name": "Missed/Accepted?1"
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        944,
+        240
+      ],
+      "id": "39db1ea7-c31a-4fbf-9f08-d4c3034f7019",
+      "name": "Wait 30 Seconds1",
+      "webhookId": "98b3f426-0325-4fd4-829f-01b6ff507feb"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.vapi.ai/call/{{ $('Make Call3').item.json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1168,
+        160
+      ],
+      "id": "57cc513e-7b55-480a-8003-1ca7a4e42275",
+      "name": "Fetch Call Details1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "QaFb2QNcSDnxCvPY",
+          "name": "my vapi api key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1998323967,
+          "mode": "list",
+          "cachedResultName": "LEADS TO ASK ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=1998323967"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "CALL SUMMARY": "={{ $('Fetch Call Details1').item.json.summary }}",
+            "CALL TRANSCRIPT": "={{ $('Fetch Call Details1').item.json.transcript }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service interested ",
+              "displayName": "Service interested ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PHONE NUMBER",
+              "displayName": "PHONE NUMBER",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CALL SUMMARY",
+              "displayName": "CALL SUMMARY",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CALL TRANSCRIPT",
+              "displayName": "CALL TRANSCRIPT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2064,
+        304
+      ],
+      "id": "5182958e-38c4-42b6-8a35-f1b4db1961da",
+      "name": "Log Call1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        496,
+        304
+      ],
+      "id": "c34dfce9-fc18-4621-8ac8-08e788fe7ecd",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1998323967,
+          "mode": "list",
+          "cachedResultName": "LEADS TO ASK ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=1998323967"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Get Leads').item.json.row_number }}",
+            "status": "CALLED"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "leadName",
+              "displayName": "leadName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "phoneNumber",
+              "displayName": "phoneNumber",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1840,
+        240
+      ],
+      "id": "6b0e893d-c370-4d84-b226-a9e12f707efe",
+      "name": "Mark Call 'Completed'",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.vapi.ai/call",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "=json",
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "jsonBody": "={\n  \"assistantId\": \"46d55956-aec2-4d43-bc5f-5c680914a2f4\",\n  \"phoneNumberId\": \"4c94299e-42bd-4595-9137-071f1df09b86\",\n  \"customer\": {\n    \"number\": \"+{{ $json['PHONE NUMBER'] }}\",\n    \"name\": \"{{ $json.Name }}\"\n  },\n  \"assistant\": {\n    \"model\": {\n      \"provider\": \"openai\",\n      \"model\": \"gpt-3.5-turbo\",\n      \"messages\": [\n        {\n          \"role\": \"system\",\n          \"content\": \"This is our client who contacted us on {{ $('Get row(s) in sheet').item.json['DATE CONTACTED'] }}. Your task is to ask if they are still interested. If yes, continue using the n8n tool.\"\n        }\n      ]\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        240
+      ],
+      "id": "46c44141-a5a9-4726-ad76-d30bbb4a813a",
+      "name": "Make Call3",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "QaFb2QNcSDnxCvPY",
+          "name": "my vapi api key"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        [
+          {
+            "node": "Send an SMS/MMS/WhatsApp message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send an SMS/MMS/WhatsApp message1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send an SMS/MMS/WhatsApp message2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send an SMS/MMS/WhatsApp message2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "In Progress/Ended?1": {
+      "main": [
+        [
+          {
+            "node": "Wait 30 Seconds1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Missed/Accepted?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missed/Accepted?1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Mark Call 'Completed'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 30 Seconds1": {
+      "main": [
+        [
+          {
+            "node": "Fetch Call Details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Call Details1": {
+      "main": [
+        [
+          {
+            "node": "In Progress/Ended?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Call1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Make Call3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Call 'Completed'": {
+      "main": [
+        [
+          {
+            "node": "Log Call1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make Call3": {
+      "main": [
+        [
+          {
+            "node": "Wait 30 Seconds1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "86b9ea55-d0cf-4184-85d2-31b3d01d45a3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4eeb565dfacb5326a4ba8020f437ca31067676b0a47cf9fda627dc38f664dddd"
+  },
+  "id": "xD6RK7UTIF34JqXp",
+  "tags": [
+    {
+      "createdAt": "2025-10-04T04:50:43.755Z",
+      "updatedAt": "2025-10-04T04:50:43.755Z",
+      "id": "bdcAKXOIxfWb6fAX",
+      "name": "developed by Dawood"
+    }
+  ]
+}

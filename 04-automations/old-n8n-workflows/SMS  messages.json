@@ -1,0 +1,751 @@
+{
+  "name": "SMS  messages",
+  "nodes": [
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Create an event in Google Calendar. Use this for booking new meeting or appointment ",
+        "calendar": {
+          "__rl": true,
+          "value": "teambuzzooka@gmail.com",
+          "mode": "list",
+          "cachedResultName": "teambuzzooka@gmail.com"
+        },
+        "start": "={{ $fromAI(\"startTime\",\"this is the start time for the clender event to be created \") }}",
+        "end": "={{ $fromAI(\"endTime\",\"this is the end time for the clender event to be created\") }}",
+        "additionalFields": {
+          "description": "={{ $fromAI(\"data\",\"use the data like names, and other discription for the work(this is optional oif provided good don't ask for this)\") }}",
+          "summary": "={{ $fromAI(\"summary\",\"this is the summary/tital of the event created(this is optional oif provided good don't ask for this)\")}}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        912,
+        320
+      ],
+      "id": "0e169f5b-23af-401c-9322-a8c1e87937f9",
+      "name": "Create an event in Google Calendar1",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "088pW3inqWq0tRmI",
+          "name": "testing final account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Twilio Trigger').item.json.data.from }}",
+        "contextWindowLength": "={{ 10 }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        784,
+        320
+      ],
+      "id": "fec1ab5a-b83f-4c33-89e0-87584aa7286f",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "use this tool to check the avalibility of the event, if there are already events then return that time already booked, if some this between there is remaining consiter using that, then provide the avability of the event.user can also just ask for the meeting ",
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "teambuzzooka@gmail.com",
+          "mode": "list",
+          "cachedResultName": "teambuzzooka@gmail.com"
+        },
+        "limit": 10,
+        "timeMin": "={{ $fromAI(\"Start_time\",\"hour before the time user requested  \")}}",
+        "timeMax": "={{ $fromAI(\"end_time\" ,\"hour after the time user requested\")}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        1040,
+        320
+      ],
+      "id": "a16be841-8181-44e1-a516-fa9d0c0e87d8",
+      "name": "Get many events in Google Calendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "088pW3inqWq0tRmI",
+          "name": "testing final account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.data.body }}",
+        "options": {
+          "systemMessage": "=\nIdentity & Purpose\n\nYou are Georgia, the virtual receptionist for Dr. Colin Hong’s Cosmetic Surgery Clinic in Toronto, Canada.\nYou respond to incoming SMS messages from patients and leads, answer their questions, and assist them in requesting consultations or appointments.\n\nYou use the following tools through n8n automation:\n\nGet Many Events – check the clinic’s Google Calendar to see if the requested appointment time is available.\n\nCreate Calendar Event – add a tentative appointment request in the Google Calendar if the time is available.\n\nAppend Row (Appointments Sheet) – record all patient details and appointment requests.\n\nAppend Row (Inquiries Sheet) – record general questions or non-booking inquiries for human review.\n\nYou never confirm appointments as final.\nAlways say the request has been forwarded to the clinic’s scheduling team for review.\n\nVoice & Tone\n\nKeep replies short, clear, and friendly.\n\nSound human — warm, respectful, and confident.\n\nAvoid over-explaining or giving multiple examples.\n\nAlways sign messages with:\n– Georgia from Dr. Colin Hong’s Clinic\n\nConversation Flow\n1. Greeting\n\nHello! This is Georgia from Dr. Colin Hong’s Cosmetic Surgery Clinic.\nHow can I help you today?\n\n2. Common Information\n\nIf asked about services:\nWe provide cosmetic and reconstructive surgery, injectables and skincare, hand condition treatments, and dermatology care.\n\nIf asked about hours:\nOur clinic is open Monday to Friday from 10 AM to 5 PM, and Saturday from 9 AM to 5 PM (Eastern Time).\nWe’re closed on Sundays and public holidays.\n\nIf message arrives after hours:\nOur clinic is currently closed, but I’ve forwarded your message to our team. Someone will reach out once we reopen.\n\n3. Appointment Requests\n\nIf the patient wants to book:\nTo help schedule your consultation, please share your full name, phone number, email address, the service or reason for your visit, your preferred date and time, and your city or country so I can note your time zone.\n\n4. Checking and Scheduling\n\nWhen a preferred time is received:\n\nUse Get Many Events to check if that time is available.\n\nIf available, use Create Calendar Event to add a tentative appointment request (converted to Eastern Time – Toronto).\n\nRecord it in the Appointments Sheet using Append Row.\n\nIf the time is not available:\nThat time is currently booked. Please suggest another time that may work better for you.\n\n5. Recording & Forwarding\n\nAfter recording the details or creating a tentative appointment:\nUse Append Row to log the information in the correct sheet (Appointments or Inquiries).\n\nThen reply:\nThank you for sharing your details.\nYour request has been received and forwarded to our scheduling team for review. You’ll receive confirmation or a follow-up within 24 hours.\n\nToday’s date: {{ $now.setZone(\"America/Toronto\").toFormat(\"dd/MM/yyyy\") }}\nCurrent time: {{ $now.setZone(\"America/Toronto\").toFormat(\"hh:mm a\") }}\n\n– Georgia from Dr. Colin Hong’s Clinic\n\n6. Time Zone Handling\n\nDetect the sender’s local time zone.\n\nConvert their requested time to Eastern Time (Toronto) for all scheduling.\n\nIf their time zone differs, reply politely:\nI’ve adjusted your requested time to our clinic’s Eastern Time zone to ensure accurate scheduling.\n\nResponse Guidelines\n\nKeep each SMS under three short sentences.\n\nAlways answer the question first, then collect needed details.\n\nNever confirm appointments as final — all are pending requests.\n\nFor unclear responses:\nSorry, could you please clarify that?"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        912,
+        96
+      ],
+      "id": "b01ca664-e8fd-4cc8-9b0f-5a3b6c31fb8f",
+      "name": "calendar booking agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        656,
+        320
+      ],
+      "id": "43a29c41-1011-4a7e-aa5b-9ca6e9089eab",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Eokw4JeMtXPzzzpI",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "com.twilio.messaging.inbound-message.received"
+        ]
+      },
+      "type": "n8n-nodes-base.twilioTrigger",
+      "typeVersion": 1,
+      "position": [
+        208,
+        96
+      ],
+      "id": "ef7e430c-7bc8-43c8-a093-c1b1323fd165",
+      "name": "Twilio Trigger",
+      "webhookId": "f8a75c0e-6c8d-4da6-a756-c4b25f84f0ca",
+      "credentials": {
+        "twilioApi": {
+          "id": "OiuaZoPJWWK7l2Fd",
+          "name": "api connetction"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "from": "+1 365 695 5199",
+        "to": "={{ $('Twilio Trigger').item.json.data.from }}",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        96
+      ],
+      "id": "3c303aec-13e5-47ce-9d38-cf0380cb0abb",
+      "name": "Send an SMS/MMS/WhatsApp message",
+      "credentials": {
+        "twilioApi": {
+          "id": "KGPmKqA09xug9a1U",
+          "name": "Twilio account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "4e2c9e54-a3bb-4e70-8dac-afff32706397",
+              "leftValue": "={{ $json.data.to }}",
+              "rightValue": "+13656955199",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        96
+      ],
+      "id": "d51b6fb8-3d1e-44b4-b733-857f2f08a16d",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        432
+      ],
+      "id": "6ef7efcf-11ec-42fc-b16c-00c916e17a69",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "EwC2d53bNjdk0bwk",
+          "name": "ClinicPilot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "once you have add the request of the client in calendar , add the data here as well",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1998323967,
+          "mode": "list",
+          "cachedResultName": "LEADS TO ASK ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=1998323967"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "PHONE NUMBER": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('PHONE_NUMBER', `this is the phone number of the patient with the country code , with out pluse sign ex 132423...., if this is not provided ask for this `, 'string') }}",
+            "NAME": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('NAME', `this is the name of the user, if you don't have then ask for this`, 'string') }}",
+            "EMAIL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('EMAIL', `this is the name of the email`, 'string') }}",
+            "STATUS": "NEW_LEAD",
+            "DATE CONTACTED": "={{ $now.format('dd/MM/yyyy') }}",
+            "DATE AND TIME REQUESTED": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('DATE_AND_TIME_REQUESTED', `this is the date and  time the user requested for an appointment`, 'string') }}",
+            "INTRESTED SERIVCE AND DETAIL ": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('INTRESTED_SERIVCE_AND_DETAIL_', `this is the name of the service and few detail the user given to you `, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "NAME",
+              "displayName": "NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "EMAIL",
+              "displayName": "EMAIL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "PHONE NUMBER",
+              "displayName": "PHONE NUMBER",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "DATE CONTACTED",
+              "displayName": "DATE CONTACTED",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "DATE AND TIME REQUESTED",
+              "displayName": "DATE AND TIME REQUESTED",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "INTRESTED SERIVCE AND DETAIL ",
+              "displayName": "INTRESTED SERIVCE AND DETAIL ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FINAL DATE",
+              "displayName": "FINAL DATE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FINAL TIME IN 24 HOUR FORMAT",
+              "displayName": "FINAL TIME IN 24 HOUR FORMAT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "OUTBOUND TYPE",
+              "displayName": "OUTBOUND TYPE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "NATIFICATIONS",
+              "displayName": "NATIFICATIONS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "REMINDER_1",
+              "displayName": "REMINDER_1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "REMINDER_2",
+              "displayName": "REMINDER_2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "REMINDER_3",
+              "displayName": "REMINDER_3",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CALL SUMMARY",
+              "displayName": "CALL SUMMARY",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CALL TRANSCRIPT",
+              "displayName": "CALL TRANSCRIPT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1312,
+        336
+      ],
+      "id": "6411f655-c44d-458c-9fa3-5fc8c49d9c7f",
+      "name": "add the appointment sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "if the user have a question you don't have the answer add the detail  here and forward i have added your request out team member will contact you.",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 718422327,
+          "mode": "list",
+          "cachedResultName": "Inquiry Form",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=718422327"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{ $now.format('dd/MM/yyyy') }}",
+            "Your Name": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Your_Name', `this is name of the user, ask if you don't know. ask in a good way`, 'string') }}",
+            "Email Address": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Email_Address', `this is email of the user, ask if you don't know. ask in a good way`, 'string') }}",
+            "Phone Number": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Phone_Number', `this is email of the phone number, ask if you don't know. ask in a good way`, 'string') }}",
+            "Service You Are Inquiring About": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Service_You_Are_Inquiring_About', `this is the name of the service if asking about`, 'string') }}",
+            "Inquiry Message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Inquiry_Message', `this is the exact message of the user`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Your Name",
+              "displayName": "Your Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Service You Are Inquiring About",
+              "displayName": "Service You Are Inquiring About",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Cosmetic Surgery Service",
+              "displayName": "Choose a Cosmetic Surgery Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Reconstructive Surgery Service",
+              "displayName": "Choose a Reconstructive Surgery Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Injectables Service",
+              "displayName": "Choose a Injectables Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Gender Specification Service",
+              "displayName": "Choose a Gender Specification Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Hand Conditions Service",
+              "displayName": "Choose a Hand Conditions Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Skin Care and Injectables Service",
+              "displayName": "Choose a Skin Care and Injectables Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Choose a Skin and Dermatological Concerns Service",
+              "displayName": "Choose a Skin and Dermatological Concerns Service",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Inquiry Message",
+              "displayName": "Inquiry Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Consent Agreement:",
+              "displayName": "Email Consent Agreement:",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1488,
+        336
+      ],
+      "id": "60002084-d49f-456e-bd9b-4b2e2b7f66d0",
+      "name": "add to Inquiry sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Create an event in Google Calendar1": {
+      "ai_tool": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many events in Google Calendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "calendar booking agent": {
+      "main": [
+        [
+          {
+            "node": "Send an SMS/MMS/WhatsApp message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Twilio Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        []
+      ]
+    },
+    "add the appointment sheet": {
+      "ai_tool": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "add to Inquiry sheet": {
+      "ai_tool": [
+        [
+          {
+            "node": "calendar booking agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "60f5b896-a92c-42ee-93c4-2a64066f290d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4eeb565dfacb5326a4ba8020f437ca31067676b0a47cf9fda627dc38f664dddd"
+  },
+  "id": "WciXtuyKZSUfKsej",
+  "tags": [
+    {
+      "createdAt": "2025-10-04T04:50:43.755Z",
+      "updatedAt": "2025-10-04T04:50:43.755Z",
+      "id": "bdcAKXOIxfWb6fAX",
+      "name": "developed by Dawood"
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "name": "Daily data sending to clinic member",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -160,
+        -224
+      ],
+      "id": "579b98b2-8874-40dc-84f7-f4c049be0164",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g",
+          "mode": "list",
+          "cachedResultName": "Booking Form (Chatbot Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1998323967,
+          "mode": "list",
+          "cachedResultName": "LEADS TO ASK ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CXP4TPvtnpspxhwZ5Vgq7kVekWDM9E7dQlnV7zwsP_g/edit#gid=1998323967"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Date",
+              "lookupValue": "={{ $now.format('dd/MM/yyyy') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        64,
+        -224
+      ],
+      "id": "4f50738f-5c91-4b2b-a4b7-bfb709078383",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2PiJl0oSefWY7xLX",
+          "name": "team , bazooka and google sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "81661f0a-3009-4f18-9d16-8f5eaffe6562",
+              "leftValue": "={{ $json.row_number }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        288,
+        -224
+      ],
+      "id": "06575de3-bbc5-4596-bed0-b0230f9999a3",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all input items\nconst items = $input.all();\n\nlet allLeads = [];\n\n// Handle common aggregator structures safely\nfor (const item of items) {\n  const json = item.json;\n\n  if (Array.isArray(json)) {\n    // case: aggregated array directly in json\n    allLeads.push(...json);\n  } else if (Array.isArray(json.data)) {\n    // case: array under json.data\n    allLeads.push(...json.data);\n  } else if (typeof json === 'object' && Object.keys(json).length > 0) {\n    // case: single object\n    allLeads.push(json);\n  }\n}\n\n// Make sure we actually have leads\nif (allLeads.length === 0) {\n  return [{ json: { text: '⚠️ No leads found in input data.' } }];\n}\n\n// Build clean text output\nconst text = allLeads\n  .map((lead, i) => {\n    const name = lead[\"Name\"]?.trim() || \"N/A\";\n    const phone = lead[\"Phone Number\"]?.trim() || \"N/A\";\n    const email = lead[\"Email\"]?.trim() || \"N/A\";\n    const booked = lead[\"Date booked Oppointment\"] || \"N/A\";\n    const contacted = lead[\"Date contacted\"] || \"N/A\";\n    const timing = lead[\"Timing \"]?.trim() || \"N/A\";\n\n    return [\n      `Lead #${i + 1}`,\n      `Name: ${name}`,\n      `Phone Number: ${phone}`,\n      `Email: ${email}`,\n      `Date booked Appointment: ${booked}`,\n      `Date contacted: ${contacted}`,\n      `Timing: ${timing}`\n    ].join('\\n');\n  })\n  .join('\\n\\n');\n\n// Return formatted text\nreturn [{ json: { text } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        736,
+        -224
+      ],
+      "id": "8d320c4f-51b1-435c-9b1d-f37ac59de408",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {
+          "includeBinaries": false
+        }
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        512,
+        -224
+      ],
+      "id": "b3d68fb5-7ee8-4bf2-bc7f-9a5948ac3326",
+      "name": "Aggregate1"
+    },
+    {
+      "parameters": {
+        "sendTo": "mdkk9170@gmail.com",
+        "subject": "New Leads of today",
+        "emailType": "text",
+        "message": "={{ $json.text }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        960,
+        -224
+      ],
+      "id": "655e2d7a-858d-4371-85fc-d3b560504ded",
+      "name": "Send a message1",
+      "webhookId": "c6402e3a-516b-409f-95bb-410cf67411fe",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "hnroPF27KTwynKcG",
+          "name": "team Dr.gmail"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Get row(s) in sheet": [
+      {
+        "json": {
+          "row_number": 2,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2025",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 3,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2026",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 4,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2027",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 5,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2028",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 6,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2029",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 7,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2030",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 8,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2031",
+          "Timing ": ""
+        }
+      },
+      {
+        "json": {
+          "row_number": 9,
+          "Name": "",
+          "Email": "",
+          "Phone Number": "",
+          "Date booked Oppointment": "26/09/2025",
+          "Date contacted": "26/09/2032",
+          "Timing ": ""
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Aggregate1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ad9f761e-a2d4-4adc-a3b9-ae3b13c35de0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4eeb565dfacb5326a4ba8020f437ca31067676b0a47cf9fda627dc38f664dddd"
+  },
+  "id": "Prcr3Q7UaF3PLFcz",
+  "tags": [
+    {
+      "createdAt": "2025-10-04T04:50:43.755Z",
+      "updatedAt": "2025-10-04T04:50:43.755Z",
+      "id": "bdcAKXOIxfWb6fAX",
+      "name": "developed by Dawood"
+    }
+  ]
+}

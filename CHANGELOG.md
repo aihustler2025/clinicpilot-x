@@ -14,6 +14,11 @@
 - Added Lovable project manager master audit prompt.
 - Created private GitHub repo `aihustler2025/clinicpilot-x`.
 - Connected local D-drive repo to GitHub and pushed initial project memory commit.
+- Inventoried old ClinicPilot X archive at `D:\PROJECTS\CLINICPILOT X (Old)`.
+- Copied old n8n workflow exports into active project automation folder.
+- Generated old document intake summary and file inventory.
+- Added Lovable project inventory.
+- Added domain plan for `clinicpilotx.com`.
 
 ## 2026-05-21
 
