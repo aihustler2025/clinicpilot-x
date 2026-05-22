@@ -12,6 +12,7 @@ Project setup and intake. The owner has an existing Lovable-built project with a
 - Active local folder: `D:\BUZZOOKA WORKSPACE\Products\ClinicPilot X`
 - GitHub repo: `https://github.com/aihustler2025/clinicpilot-x`
 - Lovable project: `https://lovable.dev/projects/37666967-bc8e-4032-9043-f45713e2bc22`
+- Lovable project labels: `Marketing Lovable` for the audited static website project; `Dashboard Lovable` for the separate app/dashboard project still pending audit.
 - Target domain: `clinicpilotx.com`
 - The owner wants a usable MVP in about one week because clients are waiting.
 - Target customers include plastic surgery clinics, dentists, dental surgery offices, med spas, beauty spas, hair salons, beauty parlors, and similar service businesses.
@@ -35,13 +36,13 @@ Project setup and intake. The owner has an existing Lovable-built project with a
 
 On 2026-05-22, Codex inventoried `D:\PROJECTS\CLINICPILOT X (Old)`. The archive contains old docs, n8n workflow exports, PDFs, spreadsheets, and images. Key findings were saved in `08-research/old-docs-intake/reference-material-findings.md`, and old n8n exports were copied to `04-automations/old-n8n-workflows`.
 
-## Lovable Audit Round 1 Findings
+## Marketing Lovable Audit Round 1 Findings
 
-Lovable reports the current project is a static marketing site only. There is no dashboard, no backend, no Lovable Cloud, no Supabase, no auth, no database, no n8n, and no active integrations. The contact form only shows a toast and discards lead data. See `03-lovable/lovable-audit-round-1-findings.md`.
+Lovable reports the audited project is a static marketing site only. There is no dashboard, no backend, no Lovable Cloud, no Supabase, no auth, no database, no n8n, and no active integrations. The contact form only shows a toast and discards lead data. This project is now labeled `Marketing Lovable`. See `03-lovable/lovable-audit-round-1-findings.md`.
 
 ## Next Best Step
 
-Send `prompts/lovable-custom-response-after-audit.md` to Lovable instead of clicking broad approval. The next step is to make Lovable add/maintain project memory files and propose the exact Step 1 backend/auth plan before implementation.
+Audit the separate `Dashboard Lovable` project before approving any backend/dashboard implementation in `Marketing Lovable`. Send `prompts/lovable-marketing-hold-message.md` to Marketing Lovable and `prompts/lovable-dashboard-audit-message.md` to Dashboard Lovable.
 
 ## Immediate Prompt To Use
 

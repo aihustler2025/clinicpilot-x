@@ -24,6 +24,9 @@
 - Added Lovable audit round 1 findings.
 - Added Lovable project memory protocol.
 - Added custom response to send instead of broad approval.
+- Reclassified audited Lovable project as `Marketing Lovable`.
+- Added two-project strategy doc.
+- Added Marketing Lovable hold message and Dashboard Lovable audit message.
 
 ## 2026-05-21
 

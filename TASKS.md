@@ -56,6 +56,12 @@
 - [x] Extract Lovable audit findings.
 - [x] Create Lovable project memory protocol.
 - [x] Create custom response to send instead of broad approval.
+- [x] Identify audited project as Marketing Lovable only.
+- [x] Create Marketing Lovable hold/audit message.
+- [x] Create Dashboard Lovable audit message.
+- [ ] Collect Dashboard Lovable project URL/ID.
+- [ ] Send Dashboard Lovable audit message and collect response.
+- [ ] Decide merge strategy: one Lovable app vs marketing/app split.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
 - [ ] Verify any Lovable-claimed completion on the actual app before marking done.
