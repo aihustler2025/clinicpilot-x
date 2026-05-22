@@ -48,6 +48,10 @@ Choose Dashboard Lovable as the likely main app, but require a security/auth imp
 
 Marketing Lovable is static marketing only. Dashboard Lovable has dashboard routes and an external Supabase project (`zglkebeaimtvpynmlrra`) with tables, but critical security/auth work is missing. The recommended path is to make Dashboard Lovable the main app and port Marketing Lovable pages into it after security/auth are fixed.
 
+## Dashboard Step 1 Plan Review
+
+Dashboard Lovable proposed a security/auth/roles plan. It is acceptable with guardrails: project memory should be real files where possible, no destructive data changes, no public lead capture in Step 1, and admin bootstrap must be explicit and safe. Use `prompts/lovable-dashboard-step-1-approve-with-guardrails.md`.
+
 ## Immediate Prompt To Use
 
 Paste `prompts/lovable-audit-round-1-current-state.md` into the ClinicPilot X Lovable chat. Save Lovable's response into `03-lovable` before creating implementation prompts.

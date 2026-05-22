@@ -66,6 +66,9 @@
 - [x] Decide merge strategy: make Dashboard Lovable the main app and port marketing pages into it.
 - [x] Create Dashboard Lovable Step 1 security/auth planning prompt.
 - [ ] Send Dashboard Lovable Step 1 security/auth planning prompt and collect response.
+- [x] Review Dashboard Lovable Step 1 security/auth plan.
+- [x] Create Step 1 approval message with guardrails.
+- [ ] Send Step 1 approval message to Dashboard Lovable.
 - [ ] Send Marketing Lovable pause message after combined audit.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
