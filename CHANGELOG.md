@@ -34,6 +34,8 @@
 - Reviewed Dashboard Lovable Step 1 security/auth plan.
 - Added Step 1 approval prompt with guardrails.
 - Added ClinicPilot X product ecosystem vision covering chatbot plugin, website package, and future staff app.
+- Extracted Dashboard Lovable build-mode request.
+- Added review recommending approval for Step 1 app code only.
 
 ## 2026-05-21
 

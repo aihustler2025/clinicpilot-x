@@ -69,6 +69,9 @@
 - [x] Review Dashboard Lovable Step 1 security/auth plan.
 - [x] Create Step 1 approval message with guardrails.
 - [ ] Send Step 1 approval message to Dashboard Lovable.
+- [x] Review Dashboard Lovable build-mode approval request.
+- [ ] Approve Dashboard Lovable build mode for Step 1 app code only.
+- [ ] Collect Dashboard Lovable Step 1 implementation report.
 - [ ] Send Marketing Lovable pause message after combined audit.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
