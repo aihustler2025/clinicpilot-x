@@ -48,3 +48,11 @@ Send this file to Dashboard Lovable next:
 ## Rule
 
 The numbered handoff files are for human/tool communication. The `prompts/` folder can still keep reusable internal prompt templates.
+
+## Other AI Response Instruction
+
+When sending a numbered handoff to Lovable, ask Lovable to include a suggested response filename near the top of its answer:
+
+`Suggested response filename: Dashboard-Lovable-to-Codex-###-[short-topic].md`
+
+This lets the owner save Lovable responses without inventing filenames manually.

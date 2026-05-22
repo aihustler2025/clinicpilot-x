@@ -40,6 +40,8 @@
 - Added Step 1 completion review and admin access recovery prompt.
 - Added Lovable QA protocol and verification rule.
 - Added Lovable handoff naming system and numbered outgoing admin-access file.
+- Added global Buzzooka AI-to-AI handoff naming standard.
+- Added Dashboard Lovable handoff naming protocol message.
 
 ## 2026-05-21
 

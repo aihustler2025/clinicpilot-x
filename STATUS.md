@@ -68,6 +68,10 @@ Lovable implementation claims must be verified before being treated as complete.
 
 Use numbered Markdown files for Codex/Lovable messages. Current next outgoing file: `03-lovable/handoffs/outgoing-to-lovable/Codex-to-Dashboard-Lovable-004-admin-access-recovery.md`. Naming rules are in `03-lovable/handoff-naming-system.md`.
 
+## Global Handoff Standard
+
+The same AI-to-AI handoff naming system should apply across Buzzooka projects and tools. Global standard saved at `D:\BUZZOOKA WORKSPACE\00-global-systems\handoff-protocols\ai-to-ai-handoff-naming-standard.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.
