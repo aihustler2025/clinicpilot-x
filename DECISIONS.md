@@ -6,6 +6,12 @@ Decision: ClinicPilot X active project memory lives at `D:\BUZZOOKA WORKSPACE\Pr
 
 Reason: The owner works across office PC and travel laptop and wants the external D drive to be the portable active workspace.
 
+## 2026-05-22 - GitHub Repository
+
+Decision: ClinicPilot X GitHub repo is `https://github.com/aihustler2025/clinicpilot-x`.
+
+Reason: GitHub is the project brain/source-of-truth layer for code, project memory, prompts, tasks, status, decisions, and changelog.
+
 ## 2026-05-21 - Create CLINICPILOTX As Its Own Product Memory
 
 Decision: ClinicPilot X will have its own local project folder and markdown continuity files.

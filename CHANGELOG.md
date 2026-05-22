@@ -12,6 +12,8 @@
 - Added GitHub repo creation instructions.
 - Added hosting cleanup and n8n SiteGround prompt.
 - Added Lovable project manager master audit prompt.
+- Created private GitHub repo `aihustler2025/clinicpilot-x`.
+- Connected local D-drive repo to GitHub and pushed initial project memory commit.
 
 ## 2026-05-21
 

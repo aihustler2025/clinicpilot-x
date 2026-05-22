@@ -11,10 +11,10 @@
 - [x] Copy existing ClinicPilot X project docs into active D-drive folder.
 - [x] Initialize local Git repo for active D-drive ClinicPilot X folder.
 - [x] Rename local Git branch to `main`.
-- [ ] Create GitHub repo or connect to existing remote.
+- [x] Create GitHub repo or connect to existing remote.
 - [ ] Create or verify D-drive mirror for FanFlow.
 - [ ] Identify GitHub repo for Dashcards.
-- [ ] Identify GitHub repo for ClinicPilot X.
+- [x] Identify GitHub repo for ClinicPilot X.
 - [ ] Collect Lovable project URL/ID and current screenshots.
 - [ ] Collect Lovable database/backend details.
 - [ ] Determine whether Lovable can export to GitHub.

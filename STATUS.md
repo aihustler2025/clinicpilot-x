@@ -10,6 +10,7 @@ Project setup and intake. The owner has an existing Lovable-built project with a
 
 - ClinicPilot X is a Buzzooka-owned product.
 - Active local folder: `D:\BUZZOOKA WORKSPACE\Products\ClinicPilot X`
+- GitHub repo: `https://github.com/aihustler2025/clinicpilot-x`
 - The owner wants a usable MVP in about one week because clients are waiting.
 - Target customers include plastic surgery clinics, dentists, dental surgery offices, med spas, beauty spas, hair salons, beauty parlors, and similar service businesses.
 - Core MVP: classify inbound client emails, identify credible leads, notify the business owner, save lead records, and optionally draft replies.
