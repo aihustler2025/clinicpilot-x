@@ -36,6 +36,8 @@
 - Added ClinicPilot X product ecosystem vision covering chatbot plugin, website package, and future staff app.
 - Extracted Dashboard Lovable build-mode request.
 - Added review recommending approval for Step 1 app code only.
+- Extracted Dashboard Lovable Step 1 completion report.
+- Added Step 1 completion review and admin access recovery prompt.
 
 ## 2026-05-21
 

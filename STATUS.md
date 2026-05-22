@@ -56,6 +56,10 @@ Dashboard Lovable proposed a security/auth/roles plan. It is acceptable with gua
 
 Dashboard Lovable reports the Step 1 database migration has already been applied and is now asking to enter build mode for auth/protected routes/project memory files only. Approved path: click Approve if the scope shown is limited to Step 1 app code and memory files. See `03-lovable/dashboard-step-1-build-approval-review.md`.
 
+## Dashboard Step 1 Completion
+
+Dashboard Lovable reports Step 1 is complete: auth routes, protected routes, role filtering, project memory files, and role-scoped RLS policies are in place. Next step is to establish/verify owner admin access safely. Do not ask for or reveal passwords. Use `prompts/lovable-dashboard-admin-access-recovery.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.

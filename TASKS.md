@@ -72,6 +72,11 @@
 - [x] Review Dashboard Lovable build-mode approval request.
 - [ ] Approve Dashboard Lovable build mode for Step 1 app code only.
 - [ ] Collect Dashboard Lovable Step 1 implementation report.
+- [x] Collect Dashboard Lovable Step 1 implementation report.
+- [x] Create admin access recovery prompt.
+- [ ] Send admin access recovery prompt to Dashboard Lovable.
+- [ ] Create/identify owner account and promote to admin.
+- [ ] Verify protected dashboard login.
 - [ ] Send Marketing Lovable pause message after combined audit.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.
