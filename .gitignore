@@ -1,0 +1,40 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Dependencies and builds
+node_modules/
+dist/
+build/
+.next/
+.vite/
+.vercel/
+.wrangler/
+
+# Logs and local caches
+*.log
+.DS_Store
+Thumbs.db
+.cache/
+.tmp/
+tmp/
+
+# Large exports/backups should go to Google Drive or 09-exports intentionally
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.mp4
+*.mov
+*.avi
+*.psd
+*.ai
+
+# Keep intentional export folder docs trackable
+!09-exports/**/*.md
