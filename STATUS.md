@@ -64,6 +64,10 @@ Dashboard Lovable reports Step 1 is complete: auth routes, protected routes, rol
 
 Lovable implementation claims must be verified before being treated as complete. See `03-lovable/lovable-qa-protocol.md`. Dashboard Step 1 is reported complete by Lovable but still needs independent verification after admin access is established.
 
+## Lovable Handoff System
+
+Use numbered Markdown files for Codex/Lovable messages. Current next outgoing file: `03-lovable/handoffs/outgoing-to-lovable/Codex-to-Dashboard-Lovable-004-admin-access-recovery.md`. Naming rules are in `03-lovable/handoff-naming-system.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.

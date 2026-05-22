@@ -39,6 +39,7 @@
 - Extracted Dashboard Lovable Step 1 completion report.
 - Added Step 1 completion review and admin access recovery prompt.
 - Added Lovable QA protocol and verification rule.
+- Added Lovable handoff naming system and numbered outgoing admin-access file.
 
 ## 2026-05-21
 
