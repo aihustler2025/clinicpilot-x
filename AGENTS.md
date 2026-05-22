@@ -25,6 +25,7 @@ This folder is the persistent project memory for ClinicPilot X, a Buzzooka-owned
 - After meaningful work, update `STATUS.md`, `TASKS.md`, and `CHANGELOG.md`.
 - Update `DECISIONS.md` when a product, architecture, vendor, hosting, backend, domain, or automation choice is made.
 - For Lovable coordination, write clear copy-paste prompts in `prompts/` and verify actual behavior before marking tasks complete.
+- Do not trust Lovable completion claims by chat alone. Verify implementation through preview, code, Supabase, browser behavior, or relevant service dashboards before moving to the next phase.
 - For files shared by the owner, save or summarize them into the correct folder before relying on them.
 
 ## Product Guardrails

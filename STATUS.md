@@ -60,6 +60,10 @@ Dashboard Lovable reports the Step 1 database migration has already been applied
 
 Dashboard Lovable reports Step 1 is complete: auth routes, protected routes, role filtering, project memory files, and role-scoped RLS policies are in place. Next step is to establish/verify owner admin access safely. Do not ask for or reveal passwords. Use `prompts/lovable-dashboard-admin-access-recovery.md`.
 
+## QA Rule
+
+Lovable implementation claims must be verified before being treated as complete. See `03-lovable/lovable-qa-protocol.md`. Dashboard Step 1 is reported complete by Lovable but still needs independent verification after admin access is established.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.
