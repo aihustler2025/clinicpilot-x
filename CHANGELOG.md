@@ -33,6 +33,7 @@
 - Extracted second Marketing/Dashboard Lovable response.
 - Reviewed Dashboard Lovable Step 1 security/auth plan.
 - Added Step 1 approval prompt with guardrails.
+- Added ClinicPilot X product ecosystem vision covering chatbot plugin, website package, and future staff app.
 
 ## 2026-05-21
 

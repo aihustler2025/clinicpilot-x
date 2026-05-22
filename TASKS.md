@@ -86,6 +86,11 @@
 
 ## Later
 
+- [ ] Audit separate ClinicPilot X chatbot plugin Lovable project.
+- [ ] Audit related clinic website package project.
+- [ ] Define chatbot plugin as add-on/tier feature.
+- [ ] Define website package offer.
+- [ ] Explore future staff/in-house app.
 - [ ] Add SMS notifications after budget/client validation.
 - [ ] Add appointment booking integrations.
 - [ ] Add CRM integrations.

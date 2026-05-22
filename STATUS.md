@@ -52,6 +52,10 @@ Marketing Lovable is static marketing only. Dashboard Lovable has dashboard rout
 
 Dashboard Lovable proposed a security/auth/roles plan. It is acceptable with guardrails: project memory should be real files where possible, no destructive data changes, no public lead capture in Step 1, and admin bootstrap must be explicit and safe. Use `prompts/lovable-dashboard-step-1-approve-with-guardrails.md`.
 
+## Product Ecosystem Vision
+
+The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.
+
 ## Immediate Prompt To Use
 
 Paste `prompts/lovable-audit-round-1-current-state.md` into the ClinicPilot X Lovable chat. Save Lovable's response into `03-lovable` before creating implementation prompts.
