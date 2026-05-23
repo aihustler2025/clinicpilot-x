@@ -18,6 +18,7 @@ This folder is the persistent project memory for ClinicPilot X, a Buzzooka-owned
 3. Read `TASKS.md`.
 4. Read `PRODUCT_SPEC.md` if product direction is needed.
 5. Read `DECISIONS.md` before changing hosting, backend, domain, database, automation, or compliance direction.
+6. Read `docs/NAMING.md` before creating or responding to Codex/Lovable handoff files.
 
 ## Working Style
 
@@ -26,6 +27,7 @@ This folder is the persistent project memory for ClinicPilot X, a Buzzooka-owned
 - Update `DECISIONS.md` when a product, architecture, vendor, hosting, backend, domain, or automation choice is made.
 - For Lovable coordination, write clear copy-paste prompts in `prompts/` and verify actual behavior before marking tasks complete.
 - Do not trust Lovable completion claims by chat alone. Verify implementation through preview, code, Supabase, browser behavior, or relevant service dashboards before moving to the next phase.
+- Formal Codex/Lovable handoffs should be saved in `docs/handoffs/` using the naming rules in `docs/NAMING.md`.
 - For files shared by the owner, save or summarize them into the correct folder before relying on them.
 
 ## Product Guardrails

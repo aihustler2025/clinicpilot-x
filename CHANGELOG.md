@@ -42,6 +42,8 @@
 - Added Lovable handoff naming system and numbered outgoing admin-access file.
 - Added global Buzzooka AI-to-AI handoff naming standard.
 - Added Dashboard Lovable handoff naming protocol message.
+- Added repo-visible `docs/NAMING.md` and `docs/handoffs/` for Dashboard Lovable.
+- Added shared repo sync confirmation handoff 006.
 
 ## 2026-05-21
 

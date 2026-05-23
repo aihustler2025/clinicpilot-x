@@ -72,6 +72,10 @@ Use numbered Markdown files for Codex/Lovable messages. Current next outgoing fi
 
 The same AI-to-AI handoff naming system should apply across Buzzooka projects and tools. Global standard saved at `D:\BUZZOOKA WORKSPACE\00-global-systems\handoff-protocols\ai-to-ai-handoff-naming-standard.md`.
 
+## Shared Repo Sync With Dashboard Lovable
+
+Dashboard Lovable requested a repo-visible naming convention and shared handoff path. Codex created `docs/NAMING.md`, `docs/handoffs/`, and `docs/handoffs/Codex-to-Dashboard-Lovable-006-shared-repo-sync-confirmation.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.

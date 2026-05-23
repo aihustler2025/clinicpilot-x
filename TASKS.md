@@ -75,6 +75,10 @@
 - [x] Collect Dashboard Lovable Step 1 implementation report.
 - [x] Create admin access recovery prompt.
 - [x] Create numbered Lovable handoff folder and next outgoing file.
+- [x] Create repo-visible `docs/NAMING.md` for Lovable.
+- [x] Create shared `docs/handoffs/` folder.
+- [x] Copy handoffs 004 and 005 into shared handoff folder.
+- [x] Create handoff 006 shared repo sync confirmation.
 - [ ] Send admin access recovery prompt to Dashboard Lovable.
 - [ ] Create/identify owner account and promote to admin.
 - [ ] Verify protected dashboard login.
