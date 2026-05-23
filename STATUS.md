@@ -76,6 +76,10 @@ The same AI-to-AI handoff naming system should apply across Buzzooka projects an
 
 Dashboard Lovable requested a repo-visible naming convention and shared handoff path. Codex created `docs/NAMING.md`, `docs/handoffs/`, and `docs/handoffs/Codex-to-Dashboard-Lovable-006-shared-repo-sync-confirmation.md`.
 
+## Repo Visibility
+
+On 2026-05-23, Codex changed `https://github.com/aihustler2025/clinicpilot-x` from private to public so Lovable can read shared docs and handoffs directly from GitHub. Next handoff is `docs/handoffs/Codex-to-Dashboard-Lovable-007-public-repo-context-and-admin-access.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.

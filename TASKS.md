@@ -79,6 +79,8 @@
 - [x] Create shared `docs/handoffs/` folder.
 - [x] Copy handoffs 004 and 005 into shared handoff folder.
 - [x] Create handoff 006 shared repo sync confirmation.
+- [x] Make GitHub repo public for Lovable read access.
+- [x] Create handoff 007 with public repo context and admin access request.
 - [ ] Send admin access recovery prompt to Dashboard Lovable.
 - [ ] Create/identify owner account and promote to admin.
 - [ ] Verify protected dashboard login.

@@ -44,6 +44,8 @@
 - Added Dashboard Lovable handoff naming protocol message.
 - Added repo-visible `docs/NAMING.md` and `docs/handoffs/` for Dashboard Lovable.
 - Added shared repo sync confirmation handoff 006.
+- Made GitHub repo public for Lovable read access.
+- Added handoff 007 with full public repo context and admin access request.
 
 ## 2026-05-21
 
