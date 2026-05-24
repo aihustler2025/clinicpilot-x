@@ -81,7 +81,8 @@
 - [x] Create handoff 006 shared repo sync confirmation.
 - [x] Make GitHub repo public for Lovable read access.
 - [x] Create handoff 007 with public repo context and admin access request.
-- [ ] Send admin access recovery prompt to Dashboard Lovable.
+- [x] Send admin access recovery prompt to Dashboard Lovable.
+- [x] Save Dashboard Lovable 007 response into shared handoffs.
 - [ ] Create/identify owner account and promote to admin.
 - [ ] Verify protected dashboard login.
 - [ ] Verify Step 1 Supabase RLS policies directly.

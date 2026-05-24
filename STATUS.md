@@ -80,6 +80,10 @@ Dashboard Lovable requested a repo-visible naming convention and shared handoff 
 
 On 2026-05-23, Codex changed `https://github.com/aihustler2025/clinicpilot-x` from private to public so Lovable can read shared docs and handoffs directly from GitHub. Next handoff is `docs/handoffs/Codex-to-Dashboard-Lovable-007-public-repo-context-and-admin-access.md`.
 
+## Admin Access Setup
+
+Dashboard Lovable confirmed there are no existing Supabase Auth users and no admin role yet. Next step is to create the owner account at the Dashboard Lovable `/auth` preview, promote that email to admin in Supabase SQL editor, and verify protected routes/RLS before Step 2. See `03-lovable/admin-access-verification-plan.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.
