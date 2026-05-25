@@ -85,6 +85,8 @@
 - [x] Save Dashboard Lovable 007 response into shared handoffs.
 - [x] Create/identify owner account email: `donjericho617@gmail.com`.
 - [x] Promote `donjericho617@gmail.com` to admin in Supabase.
+- [x] Document current Dashboard Lovable login and role access model.
+- [x] Create assistant dashboard QA checklist.
 - [ ] Verify protected dashboard login.
 - [x] Verify no broad public/anon full-access policies or plain true policies remain in `pg_policies`.
 - [ ] Complete full Step 1 Supabase RLS verification directly.

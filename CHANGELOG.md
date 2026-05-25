@@ -10,6 +10,8 @@
 - Verified the admin role exists alongside the staff role for the owner account.
 - Checked Supabase billing: `Buzzooka` is on Pro Plan with recent invoices around `$33-$35/month`.
 - Ran a quick RLS policy verification query; it returned no public/anon full-access or plain true policies.
+- Added Dashboard Lovable login/role access notes.
+- Added assistant dashboard QA checklist for module testing.
 
 ## 2026-05-22
 

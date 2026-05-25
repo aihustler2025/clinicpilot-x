@@ -88,11 +88,17 @@ Dashboard Lovable confirmed there are no existing Supabase Auth users and no adm
 
 The owner created and verified the app account `donjericho617@gmail.com`. On 2026-05-25, Codex promoted this account to `admin` in Supabase project `zglkebeaimtvpynmlrra`. Verification returned both `admin` and `staff` roles for the account. Next action: sign into the Dashboard Lovable preview with this email and verify admin routes.
 
+Login clarification: there is one shared Dashboard Lovable login page at `/auth`. Admin and staff are roles on the same account system, not separate login portals. See `03-lovable/dashboard-login-and-role-access.md`.
+
 ## Backend Cost Audit
 
 The owner wants to avoid duplicate backend costs. Current evidence still points to Dashboard Lovable using standalone Supabase, not Lovable Cloud. The relevant Supabase organization is `Bazooka`; the relevant project is likely `Prime Clinic Pilot`. Cost status depends on the actual Supabase plan and active project count. Notes and admin SQL are saved in `05-backend-data/supabase-lovable-cloud-cost-audit.md`.
 
 Supabase dashboard now shows the `Buzzooka` organization is on the `Pro Plan`, spend cap is enabled, and recent invoices are around `$33-$35/month`. Active projects shown include `clinicpilot` and `Prime10XSocialFi`; `Video Muse` is paused. Lovable Cloud migration should not be treated as a simple switch because Lovable currently documents that migration from an existing Supabase project to Lovable Cloud is not supported.
+
+## QA Preparation
+
+Codex created an assistant QA checklist for Dashboard Lovable module testing at `09-exports/assistant-dashboard-qa-checklist.md`. Direct Codex browser QA still needs an authenticated dashboard session.
 
 ## Product Ecosystem Vision
 
