@@ -108,6 +108,8 @@ Priority findings: Settings shows demo account/clinic data, Integrations still d
 
 Next Dashboard Lovable handoff: `docs/handoffs/Codex-to-Dashboard-Lovable-008-dashboard-cleanup-real-data-and-module-audit.md`.
 
+Dashboard Lovable replied with an acceptable scoped plan for handoff 008. The plan is saved at `docs/handoffs/Dashboard-Lovable-to-Codex-008-dashboard-cleanup-real-data-and-module-audit-plan.md`. Build approval is acceptable if the blue Approve button corresponds exactly to this plan.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.

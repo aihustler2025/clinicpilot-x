@@ -96,6 +96,9 @@
 - [ ] Verify Lovable project memory files exist in Dashboard Lovable.
 - [ ] Send Lovable findings about demo settings data and stale integration messaging.
 - [x] Create Lovable handoff for dashboard cleanup, real data, and module audit.
+- [x] Review Dashboard Lovable handoff 008 cleanup plan.
+- [ ] Approve Dashboard Lovable handoff 008 build if the approval scope matches the reviewed plan.
+- [ ] Verify Dashboard Lovable handoff 008 implementation in live preview.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
