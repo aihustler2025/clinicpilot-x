@@ -95,6 +95,7 @@
 - [ ] Verify admin-only route behavior directly.
 - [ ] Verify Lovable project memory files exist in Dashboard Lovable.
 - [ ] Send Lovable findings about demo settings data and stale integration messaging.
+- [x] Create Lovable handoff for dashboard cleanup, real data, and module audit.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
@@ -112,6 +113,10 @@
 - [ ] Design email intake test workflow.
 - [x] Inventory old n8n workflow exports.
 - [x] Create hosting cleanup and n8n SiteGround prompt.
+- [x] Document n8n/Hostinger/SiteGround strategy.
+- [x] Create client pilot test data plan.
+- [ ] Check whether old Hostinger n8n instance is still accessible.
+- [ ] Check whether SiteGround plan supports Docker/Node/long-running n8n hosting.
 - [ ] Create sample test emails for credible lead, spam, unsure, existing client, and vendor.
 - [ ] Create classifier prompt/rules.
 - [ ] Decide notification channel for MVP.

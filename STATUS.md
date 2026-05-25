@@ -106,6 +106,12 @@ On 2026-05-25, Codex confirmed the in-app browser is logged into the Dashboard L
 
 Priority findings: Settings shows demo account/clinic data, Integrations still displays a stale `Connect Supabase` / backend-required message, and many modules appear to contain demo/static data until create/update/persistence is tested.
 
+Next Dashboard Lovable handoff: `docs/handoffs/Codex-to-Dashboard-Lovable-008-dashboard-cleanup-real-data-and-module-audit.md`.
+
+## Automation Hosting Strategy
+
+Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.

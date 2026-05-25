@@ -14,6 +14,9 @@
 - Added assistant dashboard QA checklist for module testing.
 - Confirmed in-app browser is logged into Dashboard Lovable as the admin account.
 - Added live admin dashboard inventory across Dashboard, Calendar, Appointments, Leads, Patients, Staff, Automation Center, Voice Assistant, Payments, Integrations, Settings, and profile menu.
+- Added Dashboard Lovable handoff 008 for removing placeholder messaging, clarifying mock vs real data, and preparing safe test data.
+- Added n8n/Hostinger/SiteGround automation hosting strategy.
+- Added client pilot test data plan using Gmail plus-addressing.
 
 ## 2026-05-22
 
