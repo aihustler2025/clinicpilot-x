@@ -112,6 +112,9 @@
 - [x] Capture multi-source Leads strategy.
 - [x] Create cost/API watchlist.
 - [x] Create Dashboard Lovable handoff 013 lead source strategy addendum.
+- [x] Review Dashboard Lovable Step 2A Leads CRUD plan.
+- [x] Create messaging channel/API strategy.
+- [x] Create Dashboard Lovable handoff 014 approving Step 2A with additive migration guardrails.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.

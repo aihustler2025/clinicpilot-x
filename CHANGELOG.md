@@ -31,6 +31,8 @@
 - Captured multi-source Leads strategy covering manual, chatbot, contact form, email, Messenger, WhatsApp, Meta leads, and future aggregators.
 - Added cost/API watchlist for paid dependencies.
 - Added Dashboard Lovable handoff 013 as a source-aware Leads addendum before Step 2A planning.
+- Saved Dashboard Lovable Step 2A Leads CRUD plan and approved it with additive migration guardrails.
+- Added messaging channel/API strategy for WhatsApp, Messenger, respond.io, MCP/CLI, and future channel architecture.
 
 ## 2026-05-22
 
