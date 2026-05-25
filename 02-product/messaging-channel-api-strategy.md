@@ -12,6 +12,8 @@ For a sellable product used by real clinic clients, use official APIs or approve
 
 Avoid unofficial WhatsApp Web/Desktop automation, scraping, browser-control bots, or reverse-engineered libraries for client-facing production use. They may appear cheaper, but they can break, violate platform terms, or risk account/number bans.
 
+Owner confirmed this principle on 2026-05-25: do not use CLI/MCP/browser automation tricks to circumvent official messaging platforms for client-facing production.
+
 ## Recommended Build Order
 
 ### MVP / Low Cost
@@ -92,6 +94,13 @@ Not acceptable as product foundation:
 - pretending to be a WhatsApp/Messenger user through a local app/browser to avoid official APIs
 - client-facing message sending that depends on one computer staying online
 
+Acceptable product path:
+
+- build ClinicPilot-owned adapters around official APIs
+- receive webhooks from Meta/WhatsApp/Messenger/Instagram later
+- write inbound messages/leads into ClinicPilot tables
+- optionally add respond.io or another aggregator as a premium connector, not an MVP dependency
+
 ## Product Architecture Recommendation
 
 In Step 2A, only build Leads fields and UI that can receive channel metadata.
@@ -105,4 +114,3 @@ Later, add:
 - provider-specific integration settings
 
 This prevents early vendor lock-in and keeps cost low.
-

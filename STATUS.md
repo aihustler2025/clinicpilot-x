@@ -136,6 +136,8 @@ The owner clarified that Leads must support multiple sources: manual entry, chat
 
 Dashboard Lovable responded with a Step 2A plan that includes a source-aware Leads CRUD build and one additive leads migration. Codex approved the direction with guardrails in `docs/handoffs/Codex-to-Dashboard-Lovable-014-approve-step-2a-leads-crud-with-migration.md`. Messaging channel/API strategy saved at `02-product/messaging-channel-api-strategy.md`.
 
+Dashboard Lovable then reported the approved Leads migration applied successfully and code is ready, but it is waiting for build mode. Codex created `docs/handoffs/Codex-to-Dashboard-Lovable-015-proceed-step-2a-build.md` to proceed with the already-approved Step 2A build.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.

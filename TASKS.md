@@ -115,6 +115,8 @@
 - [x] Review Dashboard Lovable Step 2A Leads CRUD plan.
 - [x] Create messaging channel/API strategy.
 - [x] Create Dashboard Lovable handoff 014 approving Step 2A with additive migration guardrails.
+- [x] Save Dashboard Lovable update that Leads migration applied and build mode is needed.
+- [x] Create Dashboard Lovable handoff 015 to proceed with Step 2A build.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
@@ -140,6 +142,7 @@
 - [ ] Create sample test emails for credible lead, spam, unsure, existing client, and vendor.
 - [ ] Confirm exact chatbot platform/vendor and current monthly cost.
 - [ ] Confirm chatbot webhook/export/API options.
+- [x] Confirm product policy: no unofficial WhatsApp/Messenger automation for production.
 - [ ] Create classifier prompt/rules.
 - [ ] Decide notification channel for MVP.
 - [ ] Build first proof-of-concept workflow.

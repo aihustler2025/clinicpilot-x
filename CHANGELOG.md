@@ -33,6 +33,9 @@
 - Added Dashboard Lovable handoff 013 as a source-aware Leads addendum before Step 2A planning.
 - Saved Dashboard Lovable Step 2A Leads CRUD plan and approved it with additive migration guardrails.
 - Added messaging channel/API strategy for WhatsApp, Messenger, respond.io, MCP/CLI, and future channel architecture.
+- Saved Dashboard Lovable update that the Leads migration applied and build mode is pending.
+- Added Dashboard Lovable handoff 015 to proceed with Step 2A build.
+- Recorded owner confirmation to avoid unofficial WhatsApp/Messenger automation for production.
 
 ## 2026-05-22
 
