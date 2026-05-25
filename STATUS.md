@@ -116,6 +116,10 @@ Dashboard Lovable later reported handoff 008 complete. Completion report saved a
 
 Codex verified handoff 008 in the live preview on 2026-05-25. Verification passed for the approved scope. Verification notes are saved at `03-lovable/dashboard-handoff-008-verification-2026-05-25.md`.
 
+## Auth Redirect Bug
+
+The owner reports that after sign-in, the app sometimes lands on `/unauthorized` for `donjericho617@gmail.com`, even though clicking `Home` then opens the dashboard and the same session can access admin routes. Codex also observed the active session accessing `/payments` with the `admin` role. This is likely an auth/role loading or redirect timing bug, not a missing Supabase role. Next handoff: `docs/handoffs/Codex-to-Dashboard-Lovable-010-auth-redirect-bug-and-functional-qa-plan.md`.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.

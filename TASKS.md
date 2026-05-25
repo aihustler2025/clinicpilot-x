@@ -101,6 +101,8 @@
 - [x] Create Dashboard Lovable handoff 009 build approval message.
 - [x] Save Dashboard Lovable handoff 008 completion report.
 - [x] Verify Dashboard Lovable handoff 008 implementation in live preview.
+- [x] Create Dashboard Lovable handoff 010 for `/unauthorized` auth redirect bug.
+- [ ] Fix/verify false `/unauthorized` redirect for admin account.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
@@ -120,6 +122,7 @@
 - [x] Create hosting cleanup and n8n SiteGround prompt.
 - [x] Document n8n/Hostinger/SiteGround strategy.
 - [x] Create client pilot test data plan.
+- [x] Create assistant QA script for auth redirect and leads observation.
 - [ ] Check whether old Hostinger n8n instance is still accessible.
 - [ ] Check whether SiteGround plan supports Docker/Node/long-running n8n hosting.
 - [ ] Create sample test emails for credible lead, spam, unsure, existing client, and vendor.

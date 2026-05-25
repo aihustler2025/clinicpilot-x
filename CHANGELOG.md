@@ -21,6 +21,8 @@
 - Added Dashboard Lovable handoff 009 to explicitly approve the scoped handoff 008 build.
 - Saved Dashboard Lovable's handoff 008 completion report for Codex verification.
 - Verified Dashboard Lovable handoff 008 in the live preview and recorded the results.
+- Added Dashboard Lovable handoff 010 for the false `/unauthorized` redirect bug.
+- Added assistant QA script for auth redirect and leads observation testing.
 
 ## 2026-05-22
 
