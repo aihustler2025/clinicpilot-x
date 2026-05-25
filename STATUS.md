@@ -112,6 +112,10 @@ Dashboard Lovable replied with an acceptable scoped plan for handoff 008. The pl
 
 The owner clicked Approve, but Dashboard Lovable replied that it is still waiting for explicit Codex approval before build mode. Codex created approval handoff `docs/handoffs/Codex-to-Dashboard-Lovable-009-approve-handoff-008-build.md`.
 
+Dashboard Lovable later reported handoff 008 complete. Completion report saved at `docs/handoffs/Dashboard-Lovable-to-Codex-009-handoff-008-completion-report.md`. Codex verification is pending.
+
+Codex verified handoff 008 in the live preview on 2026-05-25. Verification passed for the approved scope. Verification notes are saved at `03-lovable/dashboard-handoff-008-verification-2026-05-25.md`.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.
