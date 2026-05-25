@@ -25,6 +25,9 @@
 - Added assistant QA script for auth redirect and leads observation testing.
 - Saved Dashboard Lovable auth redirect analysis and approved the narrow frontend fix.
 - Added dashboard priority review for MVP dashboard content and quick actions.
+- Saved Dashboard Lovable auth fix completion report and verified signed-in admin refresh/deep-link behavior.
+- Added dashboard and Leads QA first-pass findings.
+- Added Dashboard Lovable handoff 012 for dashboard quick-action cleanup and Leads Supabase CRUD planning.
 
 ## 2026-05-22
 

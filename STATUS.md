@@ -122,9 +122,13 @@ The owner reports that after sign-in, the app sometimes lands on `/unauthorized`
 
 Dashboard Lovable diagnosed the bug as a race condition between auth/session restore and async role loading. Codex approved the narrow frontend fix in `docs/handoffs/Codex-to-Dashboard-Lovable-011-approve-auth-redirect-fix.md`.
 
+Dashboard Lovable reported the auth fix complete. Codex verified signed-in admin refresh/deep-link behavior on `/`, `/staff`, `/settings`, `/integrations`, and `/payments`; no false `/unauthorized` occurred. Verification notes are saved at `03-lovable/auth-redirect-fix-verification-2026-05-25.md`.
+
 ## Dashboard Product Review
 
 The dashboard needs product-priority review, not only technical load testing. Initial dashboard priorities and MVP quick-action recommendations are saved in `02-product/dashboard-priority-review.md`.
+
+First dashboard/leads QA found dead dashboard quick actions and no real Leads CRUD yet. Findings are saved at `03-lovable/dashboard-and-leads-qa-first-pass-2026-05-25.md`. Next proposed handoff is `docs/handoffs/Codex-to-Dashboard-Lovable-012-dashboard-priority-and-leads-crud-plan.md`.
 
 ## Automation Hosting Strategy
 
