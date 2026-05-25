@@ -1,6 +1,6 @@
 # ClinicPilot X Status
 
-Updated: 2026-05-22
+Updated: 2026-05-25
 
 ## Current Stage
 
@@ -83,6 +83,16 @@ On 2026-05-23, Codex changed `https://github.com/aihustler2025/clinicpilot-x` fr
 ## Admin Access Setup
 
 Dashboard Lovable confirmed there are no existing Supabase Auth users and no admin role yet. Next step is to create the owner account at the Dashboard Lovable `/auth` preview, promote that email to admin in Supabase SQL editor, and verify protected routes/RLS before Step 2. See `03-lovable/admin-access-verification-plan.md`.
+
+## Admin Account Update
+
+The owner created and verified the app account `donjericho617@gmail.com`. On 2026-05-25, Codex promoted this account to `admin` in Supabase project `zglkebeaimtvpynmlrra`. Verification returned both `admin` and `staff` roles for the account. Next action: sign into the Dashboard Lovable preview with this email and verify admin routes.
+
+## Backend Cost Audit
+
+The owner wants to avoid duplicate backend costs. Current evidence still points to Dashboard Lovable using standalone Supabase, not Lovable Cloud. The relevant Supabase organization is `Bazooka`; the relevant project is likely `Prime Clinic Pilot`. Cost status depends on the actual Supabase plan and active project count. Notes and admin SQL are saved in `05-backend-data/supabase-lovable-cloud-cost-audit.md`.
+
+Supabase dashboard now shows the `Buzzooka` organization is on the `Pro Plan`, spend cap is enabled, and recent invoices are around `$33-$35/month`. Active projects shown include `clinicpilot` and `Prime10XSocialFi`; `Video Muse` is paused. Lovable Cloud migration should not be treated as a simple switch because Lovable currently documents that migration from an existing Supabase project to Lovable Cloud is not supported.
 
 ## Product Ecosystem Vision
 

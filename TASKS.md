@@ -83,11 +83,16 @@
 - [x] Create handoff 007 with public repo context and admin access request.
 - [x] Send admin access recovery prompt to Dashboard Lovable.
 - [x] Save Dashboard Lovable 007 response into shared handoffs.
-- [ ] Create/identify owner account and promote to admin.
+- [x] Create/identify owner account email: `donjericho617@gmail.com`.
+- [x] Promote `donjericho617@gmail.com` to admin in Supabase.
 - [ ] Verify protected dashboard login.
-- [ ] Verify Step 1 Supabase RLS policies directly.
+- [x] Verify no broad public/anon full-access policies or plain true policies remain in `pg_policies`.
+- [ ] Complete full Step 1 Supabase RLS verification directly.
 - [ ] Verify admin-only route behavior directly.
 - [ ] Verify Lovable project memory files exist in Dashboard Lovable.
+- [x] Audit Supabase billing for the Bazooka organization.
+- [ ] Audit Lovable Cloud & AI balance for included usage and active charges.
+- [ ] Decide whether to keep standalone Supabase or rebuild/new-build on Lovable Cloud after Step 1 verification.
 - [ ] Send Marketing Lovable pause message after combined audit.
 - [ ] Create Lovable prompt for identifying backend/database structure.
 - [ ] Create Lovable prompt for export/GitHub handoff.

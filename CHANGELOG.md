@@ -1,5 +1,16 @@
 # ClinicPilot X Changelog
 
+## 2026-05-25
+
+- Recorded owner app account email `donjericho617@gmail.com`.
+- Recorded that the account signs in but is redirected to `/unauthorized`, meaning admin role promotion is still required.
+- Added Supabase and Lovable Cloud cost audit notes with admin promotion SQL.
+- Added backend cost audit tasks for Supabase billing and Lovable Cloud usage.
+- Promoted `donjericho617@gmail.com` to admin in Supabase project `zglkebeaimtvpynmlrra`.
+- Verified the admin role exists alongside the staff role for the owner account.
+- Checked Supabase billing: `Buzzooka` is on Pro Plan with recent invoices around `$33-$35/month`.
+- Ran a quick RLS policy verification query; it returned no public/anon full-access or plain true policies.
+
 ## 2026-05-22
 
 - Created active D-drive project folder at `D:\BUZZOOKA WORKSPACE\Products\ClinicPilot X`.
