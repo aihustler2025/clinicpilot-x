@@ -138,6 +138,8 @@ Dashboard Lovable responded with a Step 2A plan that includes a source-aware Lea
 
 Dashboard Lovable then reported the approved Leads migration applied successfully and code is ready, but it is waiting for build mode. Codex created `docs/handoffs/Codex-to-Dashboard-Lovable-015-proceed-step-2a-build.md` to proceed with the already-approved Step 2A build.
 
+Dashboard Lovable reported Step 2A build complete. Codex verified dashboard quick actions and Leads empty/review/filter UI. Full lead create/edit/persistence is still pending because browser text entry into the form is blocked in this session. Verification notes saved at `03-lovable/step-2a-dashboard-leads-verification-2026-05-25.md`.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.

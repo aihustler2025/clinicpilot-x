@@ -117,6 +117,9 @@
 - [x] Create Dashboard Lovable handoff 014 approving Step 2A with additive migration guardrails.
 - [x] Save Dashboard Lovable update that Leads migration applied and build mode is needed.
 - [x] Create Dashboard Lovable handoff 015 to proceed with Step 2A build.
+- [x] Save Dashboard Lovable Step 2A completion report.
+- [x] Verify dashboard quick-action cleanup.
+- [x] Verify Leads page no longer shows demo state and has empty/review UI.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
