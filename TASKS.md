@@ -87,11 +87,18 @@
 - [x] Promote `donjericho617@gmail.com` to admin in Supabase.
 - [x] Document current Dashboard Lovable login and role access model.
 - [x] Create assistant dashboard QA checklist.
-- [ ] Verify protected dashboard login.
+- [x] Verify protected dashboard login for admin account.
+- [x] Inventory admin sidebar modules in the live preview.
+- [x] Verify profile menu appears for admin account.
 - [x] Verify no broad public/anon full-access policies or plain true policies remain in `pg_policies`.
 - [ ] Complete full Step 1 Supabase RLS verification directly.
 - [ ] Verify admin-only route behavior directly.
 - [ ] Verify Lovable project memory files exist in Dashboard Lovable.
+- [ ] Send Lovable findings about demo settings data and stale integration messaging.
+- [ ] Test lead create/update/persistence.
+- [ ] Test patient create/update/persistence.
+- [ ] Test appointment create/update/persistence and calendar sync.
+- [ ] Create staff-only test account and verify admin route blocking.
 - [x] Audit Supabase billing for the Bazooka organization.
 - [ ] Audit Lovable Cloud & AI balance for included usage and active charges.
 - [ ] Decide whether to keep standalone Supabase or rebuild/new-build on Lovable Cloud after Step 1 verification.

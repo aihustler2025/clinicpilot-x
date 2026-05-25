@@ -100,6 +100,12 @@ Supabase dashboard now shows the `Buzzooka` organization is on the `Pro Plan`, s
 
 Codex created an assistant QA checklist for Dashboard Lovable module testing at `09-exports/assistant-dashboard-qa-checklist.md`. Direct Codex browser QA still needs an authenticated dashboard session.
 
+## Live Dashboard Admin Inventory
+
+On 2026-05-25, Codex confirmed the in-app browser is logged into the Dashboard Lovable preview as `donjericho617@gmail.com` with the `admin` role. All major admin/sidebar routes loaded without redirecting to `/auth` or `/unauthorized`. First-pass inventory is saved at `03-lovable/dashboard-live-admin-inventory-2026-05-25.md`.
+
+Priority findings: Settings shows demo account/clinic data, Integrations still displays a stale `Connect Supabase` / backend-required message, and many modules appear to contain demo/static data until create/update/persistence is tested.
+
 ## Product Ecosystem Vision
 
 The owner described a broader ClinicPilot X ecosystem: main dashboard, embeddable chatbot plugin, clinic website package, and future staff/in-house app. This is captured in `01-strategy/product-ecosystem-vision.md`, but it should not delay the immediate MVP/security work.

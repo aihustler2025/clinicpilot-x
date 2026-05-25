@@ -12,6 +12,8 @@
 - Ran a quick RLS policy verification query; it returned no public/anon full-access or plain true policies.
 - Added Dashboard Lovable login/role access notes.
 - Added assistant dashboard QA checklist for module testing.
+- Confirmed in-app browser is logged into Dashboard Lovable as the admin account.
+- Added live admin dashboard inventory across Dashboard, Calendar, Appointments, Leads, Patients, Staff, Automation Center, Voice Assistant, Payments, Integrations, Settings, and profile menu.
 
 ## 2026-05-22
 
