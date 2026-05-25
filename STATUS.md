@@ -120,6 +120,12 @@ Codex verified handoff 008 in the live preview on 2026-05-25. Verification passe
 
 The owner reports that after sign-in, the app sometimes lands on `/unauthorized` for `donjericho617@gmail.com`, even though clicking `Home` then opens the dashboard and the same session can access admin routes. Codex also observed the active session accessing `/payments` with the `admin` role. This is likely an auth/role loading or redirect timing bug, not a missing Supabase role. Next handoff: `docs/handoffs/Codex-to-Dashboard-Lovable-010-auth-redirect-bug-and-functional-qa-plan.md`.
 
+Dashboard Lovable diagnosed the bug as a race condition between auth/session restore and async role loading. Codex approved the narrow frontend fix in `docs/handoffs/Codex-to-Dashboard-Lovable-011-approve-auth-redirect-fix.md`.
+
+## Dashboard Product Review
+
+The dashboard needs product-priority review, not only technical load testing. Initial dashboard priorities and MVP quick-action recommendations are saved in `02-product/dashboard-priority-review.md`.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.

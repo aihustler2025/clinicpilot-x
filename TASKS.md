@@ -102,7 +102,10 @@
 - [x] Save Dashboard Lovable handoff 008 completion report.
 - [x] Verify Dashboard Lovable handoff 008 implementation in live preview.
 - [x] Create Dashboard Lovable handoff 010 for `/unauthorized` auth redirect bug.
+- [x] Save Dashboard Lovable auth redirect analysis.
+- [x] Create Dashboard Lovable handoff 011 approving auth redirect fix.
 - [ ] Fix/verify false `/unauthorized` redirect for admin account.
+- [x] Create dashboard priority review.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
