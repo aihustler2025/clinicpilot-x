@@ -109,6 +109,9 @@
 - [x] Create dashboard priority review.
 - [x] Complete dashboard and Leads QA first pass.
 - [x] Create Dashboard Lovable handoff 012 for dashboard priority and Leads CRUD plan.
+- [x] Capture multi-source Leads strategy.
+- [x] Create cost/API watchlist.
+- [x] Create Dashboard Lovable handoff 013 lead source strategy addendum.
 - [ ] Test lead create/update/persistence.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
@@ -132,6 +135,8 @@
 - [ ] Check whether old Hostinger n8n instance is still accessible.
 - [ ] Check whether SiteGround plan supports Docker/Node/long-running n8n hosting.
 - [ ] Create sample test emails for credible lead, spam, unsure, existing client, and vendor.
+- [ ] Confirm exact chatbot platform/vendor and current monthly cost.
+- [ ] Confirm chatbot webhook/export/API options.
 - [ ] Create classifier prompt/rules.
 - [ ] Decide notification channel for MVP.
 - [ ] Build first proof-of-concept workflow.

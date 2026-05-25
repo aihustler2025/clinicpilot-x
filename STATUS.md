@@ -130,6 +130,10 @@ The dashboard needs product-priority review, not only technical load testing. In
 
 First dashboard/leads QA found dead dashboard quick actions and no real Leads CRUD yet. Findings are saved at `03-lovable/dashboard-and-leads-qa-first-pass-2026-05-25.md`. Next proposed handoff is `docs/handoffs/Codex-to-Dashboard-Lovable-012-dashboard-priority-and-leads-crud-plan.md`.
 
+## Lead Source Strategy
+
+The owner clarified that Leads must support multiple sources: manual entry, chatbot/demo website, website contact form, email intake, Messenger, WhatsApp, Facebook/Meta leads, and later aggregators such as respond.io. MVP should prioritize manual, contact form, chatbot webhook, and email intake before paid channels. Strategy saved at `02-product/lead-source-strategy.md`; cost tracking saved at `00-admin/cost-and-api-watchlist.md`; Lovable addendum saved at `docs/handoffs/Codex-to-Dashboard-Lovable-013-lead-source-strategy-addendum.md`.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.

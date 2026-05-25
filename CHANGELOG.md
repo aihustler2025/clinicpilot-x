@@ -28,6 +28,9 @@
 - Saved Dashboard Lovable auth fix completion report and verified signed-in admin refresh/deep-link behavior.
 - Added dashboard and Leads QA first-pass findings.
 - Added Dashboard Lovable handoff 012 for dashboard quick-action cleanup and Leads Supabase CRUD planning.
+- Captured multi-source Leads strategy covering manual, chatbot, contact form, email, Messenger, WhatsApp, Meta leads, and future aggregators.
+- Added cost/API watchlist for paid dependencies.
+- Added Dashboard Lovable handoff 013 as a source-aware Leads addendum before Step 2A planning.
 
 ## 2026-05-22
 
