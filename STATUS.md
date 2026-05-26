@@ -72,6 +72,11 @@ Use numbered Markdown files for Codex/Lovable messages. Current next outgoing fi
 
 Assistant-facing test documents live in `09-exports/` and should use the owner-approved sequence: `CLINICPILOT QA {number}_{Module or Flow Name}.md` or `.docx`. QA 1 is the Leads Module Step 2A test package. QA 2 is reserved for the next module/flow, expected to be Appointments and Calendar Step 2B unless the priority changes.
 
+## Current Blockers Before Step 2B
+
+- Dashboard Lovable reports the Leads `Created` timestamp bug is fixed, but Codex still needs live UI verification.
+- Password reset currently reaches the reset screen but fails with `Auth session missing!`; Dashboard Lovable handoff 017 asks for a focused recovery-flow fix and exact login/reset links.
+
 ## Global Handoff Standard
 
 The same AI-to-AI handoff naming system should apply across Buzzooka projects and tools. Global standard saved at `D:\BUZZOOKA WORKSPACE\00-global-systems\handoff-protocols\ai-to-ai-handoff-naming-standard.md`.

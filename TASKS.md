@@ -125,6 +125,8 @@
 - [x] Record assistant QA export naming convention.
 - [x] Create Dashboard Lovable handoff 016 for Leads timestamp bug.
 - [ ] Fix Leads created timestamp/timezone display.
+- [ ] Fix password reset recovery flow (`Auth session missing!`).
+- [ ] Confirm exact admin/staff login URL and assistant testing access URL.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
 - [ ] Create staff-only test account and verify admin route blocking.
