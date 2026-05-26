@@ -122,6 +122,8 @@
 - [x] Verify Leads page no longer shows demo state and has empty/review UI.
 - [x] Test lead create/update/persistence.
 - [x] Create assistant-facing Leads module QA script.
+- [x] Record assistant QA export naming convention.
+- [x] Create Dashboard Lovable handoff 016 for Leads timestamp bug.
 - [ ] Fix Leads created timestamp/timezone display.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.

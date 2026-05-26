@@ -1,6 +1,6 @@
 # ClinicPilot X Status
 
-Updated: 2026-05-25
+Updated: 2026-05-26
 
 ## Current Stage
 
@@ -67,6 +67,10 @@ Lovable implementation claims must be verified before being treated as complete.
 ## Lovable Handoff System
 
 Use numbered Markdown files for Codex/Lovable messages. Current next outgoing file: `03-lovable/handoffs/outgoing-to-lovable/Codex-to-Dashboard-Lovable-004-admin-access-recovery.md`. Naming rules are in `03-lovable/handoff-naming-system.md`.
+
+## Assistant QA Export System
+
+Assistant-facing test documents live in `09-exports/` and should use the owner-approved sequence: `CLINICPILOT QA {number}_{Module or Flow Name}.md` or `.docx`. QA 1 is the Leads Module Step 2A test package. QA 2 is reserved for the next module/flow, expected to be Appointments and Calendar Step 2B unless the priority changes.
 
 ## Global Handoff Standard
 
