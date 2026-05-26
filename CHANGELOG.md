@@ -41,6 +41,7 @@
 - Noted that full lead CRUD verification is pending manual form entry due to browser text-entry limitations.
 - Verified full Leads create/search/edit/refresh persistence for a test lead.
 - Logged a follow-up issue for the Leads Created timestamp showing `about 8 hours ago` immediately after creation.
+- Added assistant-facing Leads module Step 2A QA script.
 
 ## 2026-05-22
 

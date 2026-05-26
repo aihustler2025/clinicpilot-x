@@ -121,6 +121,7 @@
 - [x] Verify dashboard quick-action cleanup.
 - [x] Verify Leads page no longer shows demo state and has empty/review UI.
 - [x] Test lead create/update/persistence.
+- [x] Create assistant-facing Leads module QA script.
 - [ ] Fix Leads created timestamp/timezone display.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.

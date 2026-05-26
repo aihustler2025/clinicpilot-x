@@ -140,6 +140,8 @@ Dashboard Lovable then reported the approved Leads migration applied successfull
 
 Dashboard Lovable reported Step 2A build complete. Codex verified dashboard quick actions and Leads CRUD for the admin account. A test lead was created, persisted after refresh, searched, edited from `New` to `Contacted`, and persisted again. Verification notes saved at `03-lovable/step-2a-dashboard-leads-verification-2026-05-25.md`. Follow-up: the Created column displayed `about 8 hours ago` immediately after creation, likely a timezone/date formatting issue.
 
+Assistant-facing Leads QA script created at `09-exports/assistant-qa-leads-module-step-2a.md`.
+
 ## Automation Hosting Strategy
 
 Old n8n workflows exist in `04-automations/old-n8n-workflows`, but n8n is not yet verified as connected to the live Dashboard Lovable app. Hostinger may have held a prior n8n instance; SiteGround may be available but must be checked for Docker/Node/long-running process support before using it for n8n. Strategy notes are saved in `04-automations/n8n-hostinger-siteground-strategy.md`.
