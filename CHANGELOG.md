@@ -6,6 +6,7 @@
 - Added `09-exports/README.md` so future assistant QA packages stay numbered and easy to hand off.
 - Added Dashboard Lovable handoff 016 to fix the Leads `Created` timestamp display bug before Step 2B.
 - Added Dashboard Lovable handoff 017 for the password reset `Auth session missing!` blocker and exact access links.
+- Saved Dashboard Lovable's password reset completion report; owner confirmed password reset now works.
 
 ## 2026-05-25
 

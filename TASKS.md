@@ -125,8 +125,9 @@
 - [x] Record assistant QA export naming convention.
 - [x] Create Dashboard Lovable handoff 016 for Leads timestamp bug.
 - [ ] Fix Leads created timestamp/timezone display.
-- [ ] Fix password reset recovery flow (`Auth session missing!`).
-- [ ] Confirm exact admin/staff login URL and assistant testing access URL.
+- [x] Fix password reset recovery flow (`Auth session missing!`).
+- [x] Confirm exact admin/staff login URL and assistant testing access URL.
+- [ ] Add production custom-domain redirect URLs to Supabase Auth after domain is connected.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
 - [ ] Create staff-only test account and verify admin route blocking.

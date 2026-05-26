@@ -75,7 +75,7 @@ Assistant-facing test documents live in `09-exports/` and should use the owner-a
 ## Current Blockers Before Step 2B
 
 - Dashboard Lovable reports the Leads `Created` timestamp bug is fixed, but Codex still needs live UI verification.
-- Password reset currently reaches the reset screen but fails with `Auth session missing!`; Dashboard Lovable handoff 017 asks for a focused recovery-flow fix and exact login/reset links.
+- Password reset recovery flow was fixed by Dashboard Lovable and owner-tested successfully. Keep route/link smoke testing on the list after custom domain connection.
 
 ## Global Handoff Standard
 
