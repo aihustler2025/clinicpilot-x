@@ -10,6 +10,7 @@
 - Added Dashboard Lovable handoff 018 for the Add/Edit Lead modal tab-switch persistence bug found during assistant QA.
 - Saved Dashboard Lovable's handoff 018 completion report.
 - Added Dashboard Lovable handoff 019 to confirm which preview/published URL contains the fix for VA testing.
+- Saved Dashboard Lovable's handoff 019 response confirming the preview URL contains the fix and publishing is not required for QA.
 
 ## 2026-05-25
 

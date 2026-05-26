@@ -128,7 +128,7 @@
 - [x] Fix password reset recovery flow (`Auth session missing!`).
 - [x] Confirm exact admin/staff login URL and assistant testing access URL.
 - [ ] Verify Add/Edit Lead modal tab-switch fix on the exact URL the VA is using.
-- [ ] Confirm whether Lovable Publish is required before VA can test the latest fix.
+- [x] Confirm whether Lovable Publish is required before VA can test the latest fix.
 - [ ] Add production custom-domain redirect URLs to Supabase Auth after domain is connected.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
