@@ -39,6 +39,8 @@
 - Saved Dashboard Lovable Step 2A completion report.
 - Verified Step 2A dashboard quick actions and Leads empty/review UI.
 - Noted that full lead CRUD verification is pending manual form entry due to browser text-entry limitations.
+- Verified full Leads create/search/edit/refresh persistence for a test lead.
+- Logged a follow-up issue for the Leads Created timestamp showing `about 8 hours ago` immediately after creation.
 
 ## 2026-05-22
 

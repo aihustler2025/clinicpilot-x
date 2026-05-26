@@ -120,7 +120,8 @@
 - [x] Save Dashboard Lovable Step 2A completion report.
 - [x] Verify dashboard quick-action cleanup.
 - [x] Verify Leads page no longer shows demo state and has empty/review UI.
-- [ ] Test lead create/update/persistence.
+- [x] Test lead create/update/persistence.
+- [ ] Fix Leads created timestamp/timezone display.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
 - [ ] Create staff-only test account and verify admin route blocking.

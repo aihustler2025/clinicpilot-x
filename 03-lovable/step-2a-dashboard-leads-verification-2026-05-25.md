@@ -40,17 +40,33 @@ Verified:
 - Status and source filters exist.
 - Review queue deep link shows banner `Showing the review queue (status: New)` and status filter is set to `New`.
 
-## Not Fully Verified Yet
+## CRUD Verification
 
-Lead create/edit/persistence is not yet verified because Codex browser text entry into the Lovable preview form is currently blocked by the browser virtual clipboard/type bridge. The form opens correctly, but Codex cannot type into fields from this session.
+After switching to keystroke-based field entry, Codex successfully created and edited a real lead through the UI.
 
-Manual/human QA needed:
+Created lead:
 
-1. Create a lead through the Add Lead dialog.
-2. Refresh `/leads`.
-3. Confirm the lead persists.
-4. Edit status/notes/follow-up.
-5. Refresh and confirm edits persist.
+- Full name: Sarah Johnson
+- Email: `donjericho617+sarahjohnson@gmail.com`
+- Phone: `+1 555 010 1001`
+- Source: Manual
+- Source detail: `manual-mvp-test`
+- Service: Botox consultation
+- Message: `I would like pricing and availability for a Botox appointment this week.`
+- Notes: `Created during Step 2A verification.`
+- Consent: checked
+
+Verified:
+
+- Create action showed `Lead created`.
+- Lead appeared in `/leads`.
+- Hard refresh preserved the lead.
+- Search for `Sarah` narrowed the table to 1 lead.
+- Edit dialog opened prefilled.
+- Status was changed from `New` to `Contacted`.
+- Notes were updated.
+- Save action showed `Lead updated`.
+- Hard refresh preserved the `Contacted` status.
 
 ## Suggested Manual Test Lead
 
@@ -66,5 +82,8 @@ Manual/human QA needed:
 
 ## Verdict
 
-Step 2A UI changes are partially verified and look correct. Full CRUD verification remains pending until a human/manual form entry is completed or browser text entry is restored.
+Step 2A dashboard quick actions and Leads CRUD are verified for the admin account.
 
+## Follow-Up Finding
+
+The newly created lead immediately displayed `about 8 hours ago` in the Created column. This looks like a timezone/date formatting issue. It does not block CRUD but should be cleaned up before a client demo.
