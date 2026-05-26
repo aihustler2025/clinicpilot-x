@@ -76,7 +76,7 @@ Assistant-facing test documents live in `09-exports/` and should use the owner-a
 
 - Dashboard Lovable reports the Leads `Created` timestamp bug is fixed, but Codex still needs live UI verification.
 - Password reset recovery flow was fixed by Dashboard Lovable and owner-tested successfully. Keep route/link smoke testing on the list after custom domain connection.
-- QA found that the Add Lead modal can close when the tester switches tabs/windows to copy test data. Dashboard Lovable handoff 018 asks for a focused modal persistence fix.
+- Dashboard Lovable reports the Add/Edit Lead tab-switch modal bug is fixed, but the VA may be testing a stale/unpublished build. Handoff 019 asks Dashboard Lovable to confirm the exact URL/build the VA should test.
 
 ## Global Handoff Standard
 

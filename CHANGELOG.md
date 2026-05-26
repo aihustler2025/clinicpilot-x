@@ -8,6 +8,8 @@
 - Added Dashboard Lovable handoff 017 for the password reset `Auth session missing!` blocker and exact access links.
 - Saved Dashboard Lovable's password reset completion report; owner confirmed password reset now works.
 - Added Dashboard Lovable handoff 018 for the Add/Edit Lead modal tab-switch persistence bug found during assistant QA.
+- Saved Dashboard Lovable's handoff 018 completion report.
+- Added Dashboard Lovable handoff 019 to confirm which preview/published URL contains the fix for VA testing.
 
 ## 2026-05-25
 
