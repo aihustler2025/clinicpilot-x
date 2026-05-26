@@ -7,6 +7,7 @@
 - Added Dashboard Lovable handoff 016 to fix the Leads `Created` timestamp display bug before Step 2B.
 - Added Dashboard Lovable handoff 017 for the password reset `Auth session missing!` blocker and exact access links.
 - Saved Dashboard Lovable's password reset completion report; owner confirmed password reset now works.
+- Added Dashboard Lovable handoff 018 for the Add/Edit Lead modal tab-switch persistence bug found during assistant QA.
 
 ## 2026-05-25
 

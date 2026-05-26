@@ -127,6 +127,7 @@
 - [ ] Fix Leads created timestamp/timezone display.
 - [x] Fix password reset recovery flow (`Auth session missing!`).
 - [x] Confirm exact admin/staff login URL and assistant testing access URL.
+- [ ] Fix Add/Edit Lead modal closing when switching tabs/windows during QA data entry.
 - [ ] Add production custom-domain redirect URLs to Supabase Auth after domain is connected.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
