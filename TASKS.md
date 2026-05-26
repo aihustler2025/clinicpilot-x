@@ -131,6 +131,8 @@
 - [x] Confirm whether Lovable Publish is required before VA can test the latest fix.
 - [x] Send Dashboard Lovable handoff 020: handoff 018 failed live reproduction.
 - [ ] Save/verify Dashboard Lovable handoff 020 modal persistence fix.
+- [x] Create Appointments and Calendar Step 2B strategy.
+- [x] Create Dashboard Lovable handoff 021 for Appointments and Calendar Step 2B planning.
 - [ ] Add production custom-domain redirect URLs to Supabase Auth after domain is connected.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.

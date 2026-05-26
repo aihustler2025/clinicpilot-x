@@ -13,6 +13,8 @@
 - Saved Dashboard Lovable's handoff 019 response confirming the preview URL contains the fix and publishing is not required for QA.
 - Added Dashboard Lovable handoff 020 after owner/VA confirmed the Add Lead modal still closes on tab switch after hard refresh and fresh login.
 - Saved Dashboard Lovable's handoff 020 response; Lovable acknowledged handoff 018 was insufficient and patched remount-safe Add/Edit Lead dialog state.
+- Added Appointments and Calendar Step 2B strategy with internal calendar, appointment requests, PriorityBook, and integration deferral plan.
+- Added Dashboard Lovable handoff 021 requesting a Step 2B plan for Appointments and Calendar.
 
 ## 2026-05-25
 

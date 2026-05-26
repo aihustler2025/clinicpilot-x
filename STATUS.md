@@ -78,6 +78,10 @@ Assistant-facing test documents live in `09-exports/` and should use the owner-a
 - Password reset recovery flow was fixed by Dashboard Lovable and owner-tested successfully. Keep route/link smoke testing on the list after custom domain connection.
 - Dashboard Lovable reports handoff 020 patched the Add/Edit Lead modal persistence chain after acknowledging handoff 018 was insufficient. Live verification is still pending.
 
+## Step 2B Direction
+
+Next major build is Appointments and Calendar. Strategy saved in `02-product/appointments-calendar-step-2b-strategy.md`. Codex recommendation: build the internal Supabase-backed appointment/request calendar first, with rule-based PriorityBook scoring, and defer Google Calendar/Calendly/n8n/payment/reminder integrations until the core workflow is stable.
+
 ## Global Handoff Standard
 
 The same AI-to-AI handoff naming system should apply across Buzzooka projects and tools. Global standard saved at `D:\BUZZOOKA WORKSPACE\00-global-systems\handoff-protocols\ai-to-ai-handoff-naming-standard.md`.
