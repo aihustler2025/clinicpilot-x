@@ -15,6 +15,8 @@
 - Saved Dashboard Lovable's handoff 020 response; Lovable acknowledged handoff 018 was insufficient and patched remount-safe Add/Edit Lead dialog state.
 - Added Appointments and Calendar Step 2B strategy with internal calendar, appointment requests, PriorityBook, and integration deferral plan.
 - Added Dashboard Lovable handoff 021 requesting a Step 2B plan for Appointments and Calendar.
+- Saved Dashboard Lovable's Step 2B plan response.
+- Added Dashboard Lovable handoff 022 approving Step 2B Appointments and Calendar build with product decisions and guardrails.
 
 ## 2026-05-25
 

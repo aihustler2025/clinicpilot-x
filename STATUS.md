@@ -82,6 +82,8 @@ Assistant-facing test documents live in `09-exports/` and should use the owner-a
 
 Next major build is Appointments and Calendar. Strategy saved in `02-product/appointments-calendar-step-2b-strategy.md`. Codex recommendation: build the internal Supabase-backed appointment/request calendar first, with rule-based PriorityBook scoring, and defer Google Calendar/Calendly/n8n/payment/reminder integrations until the core workflow is stable.
 
+Dashboard Lovable returned a Step 2B plan. Codex approved it with decisions in `docs/handoffs/Codex-to-Dashboard-Lovable-022-approve-step-2b-appointments-calendar-build.md`: requests appear in both Appointments and Calendar, provider source is `staff`, PriorityBook starts with a rule-based high-value service config, and drag/drop is deferred.
+
 ## Global Handoff Standard
 
 The same AI-to-AI handoff naming system should apply across Buzzooka projects and tools. Global standard saved at `D:\BUZZOOKA WORKSPACE\00-global-systems\handoff-protocols\ai-to-ai-handoff-naming-standard.md`.

@@ -133,6 +133,8 @@
 - [ ] Save/verify Dashboard Lovable handoff 020 modal persistence fix.
 - [x] Create Appointments and Calendar Step 2B strategy.
 - [x] Create Dashboard Lovable handoff 021 for Appointments and Calendar Step 2B planning.
+- [x] Save Dashboard Lovable Step 2B plan response.
+- [x] Create Dashboard Lovable handoff 022 approving Step 2B build with decisions.
 - [ ] Add production custom-domain redirect URLs to Supabase Auth after domain is connected.
 - [ ] Test patient create/update/persistence.
 - [ ] Test appointment create/update/persistence and calendar sync.
